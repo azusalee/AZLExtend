@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'AZLExtend_Example' do
+  pod 'AZLExtend', :path => '../'
+
+  target 'AZLExtend_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
