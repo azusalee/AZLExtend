@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AZLExtend'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = '常用扩展'
 
 # This description is used to generate tags and improve search results.
@@ -30,14 +30,20 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'AZLExtend/Classes/**/*'
+  #s.source_files = 'AZLExtend/Classes/**/*'
   
   # s.resource_bundles = {
   #   'AZLExtend' => ['AZLExtend/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit', 'Accelerate'
+  #s.frameworks = 'UIKit', 'Accelerate'
   #s.libraries = 'CommonCrypto'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  
+  s.subspec 'Core' do |core|
+    core.source_files = 'AZLExtend/Classes/**/*'
+  end
+  
 end

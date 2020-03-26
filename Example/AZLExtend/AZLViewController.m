@@ -7,7 +7,7 @@
 //
 
 #import "AZLViewController.h"
-#import <AZLExtend/UIView+AZLExtend.h>
+#import <AZLExtend/AZLExtend.h>
 
 @interface AZLViewController ()
 
