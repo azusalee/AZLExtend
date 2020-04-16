@@ -61,11 +61,4 @@
 - (UIImage *)azl_sobelBorderImage;
 
 
-//+ (NSArray*)azl_getEffectArray;
-//
-//- (UIImage *)azl_imageFromFilterName:(NSString*)filterName;
-
-
-
-
 @end

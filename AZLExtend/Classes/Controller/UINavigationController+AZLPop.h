@@ -16,7 +16,7 @@
 /// 強制跳回某類controller(如果要跳的controller需要入参的话，不建议用这个方法)
 - (void)azl_forcePopToViewControllerWithName:(NSString *)controllerName animated:(BOOL)animated;
 
-/// 判斷push棧是否含有某類controller，有把該controller返回，沒有返回nil
-- (UIViewController *)azl_canPopToControllerClass:(Class)vcClass;
+/// 判斷push棧是否含有某類controller，有把該類的所有controller返回，沒有返回空數組
+- (NSArray<UIViewController*>*)azl_canPopToControllerClass:(Class)vcClass;
 
 @end

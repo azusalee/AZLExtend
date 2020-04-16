@@ -10,9 +10,8 @@
 
 @implementation UINavigationController (AZLPop)
 
-
 - (void)azl_forcePopToViewController:(UIViewController *)controller animated:(BOOL)animated{
-    NSMutableArray *controllers = self.viewControllers.copy;
+    NSMutableArray *controllers = self.viewControllers.mutableCopy;
     if (![controllers containsObject:controller]) {
         [controllers insertObject:controller atIndex:controllers.count-1];
         self.viewControllers = controllers;
@@ -21,8 +20,7 @@
 }
 
 - (void)azl_forcePopToViewControllerWithName:(NSString *)controllerName animated:(BOOL)animated{
-    
-    NSMutableArray *controllers = self.viewControllers.copy;
+    NSMutableArray *controllers = self.viewControllers.mutableCopy;
     for (UIViewController *controller in controllers) {
         if ([NSStringFromClass([controller class]) isEqualToString:controllerName]) {
             //找到controller，直接pop
@@ -39,14 +37,14 @@
     [self popToViewController:controller animated:animated];
 }
 
-
-- (UIViewController *)azl_canPopToControllerClass:(Class)vcClass{
+- (NSArray<UIViewController*>*)azl_canPopToControllerClass:(Class)vcClass{
+    NSMutableArray *controllerArray = [[NSMutableArray alloc] init];
     for (UIViewController *controller in self.viewControllers) {
         if ([controller isKindOfClass:vcClass]) {
-            return controller;
+            [controllerArray addObject:controller];
         }
     }
-    return nil;
+    return controllerArray.copy;
 }
 
 @end

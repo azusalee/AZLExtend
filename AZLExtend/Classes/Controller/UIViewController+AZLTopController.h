@@ -15,7 +15,6 @@
 //用最頂層的vc取push一個controller
 + (void)azl_pushViewController:(UIViewController *)pushController;
 
-
 //獲取自己最頂層的controller
 - (UIViewController *)azl_topController;
 
