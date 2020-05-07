@@ -2,7 +2,7 @@
 //  UINavigationController+AZLExtend.h
 //  ALExampleTest
 //
-//  Created by yangming on 2018/7/18.
+//  Created by lizihong on 2018/7/18.
 //  Copyright © 2018年 Mac. All rights reserved.
 //
 

@@ -2,8 +2,8 @@
 //  UIView+ALInController.h
 //  tasker
 //
-//  Created by yangming on 2019/6/10.
-//  Copyright © 2019 BT. All rights reserved.
+//  Created by lizihong on 2019/6/10.
+//  Copyright © 2019 lizihong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
