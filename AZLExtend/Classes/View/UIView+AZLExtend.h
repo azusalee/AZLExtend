@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取当前响应的view
 - (nullable UIView *)azl_getResponseView;
 
+/// 获取某一点的颜色
+- (UIColor *)azl_colorAtPoint:(CGPoint)point;
+
 @end
 
 NS_ASSUME_NONNULL_END
