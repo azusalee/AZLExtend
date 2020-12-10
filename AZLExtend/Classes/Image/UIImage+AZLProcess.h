@@ -21,6 +21,8 @@
 + (UIImage *)azl_imageFromColor:(UIColor *)color withSize:(CGSize)size;
 ///從view生成截圖
 + (UIImage *)azl_imageFromView:(UIView *)view;
+///强制解压图片
++ (CGImageRef)azl_CGImageCreateDecoded:(CGImageRef)imageRef;
 
 
 ///生成對應size的UIImage(這裡的size按dp計算)
@@ -62,5 +64,7 @@
 ///边缘描边图
 - (UIImage *)azl_sobelBorderImage;
 
+///强制解压图片
+- (UIImage *)azl_forceDecodeImage;
 
 @end
