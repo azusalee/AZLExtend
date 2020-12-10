@@ -533,7 +533,7 @@
 
 - (UIImage *)azl_imageWithGradientTintColor:(UIColor *)tintColor
 {
-    return [self azl_imageWithTintColor:tintColor blendMode:kCGBlendModeOverlay];
+    return [self azl_imageWithTintColor:tintColor blendMode:kCGBlendModeDestinationIn];
 }
 
 - (UIImage *)azl_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode

@@ -35,9 +35,9 @@
 - (UIImage *)azl_grayImage;
 ///灰度渐隐
 - (UIImage *)azl_grayAlphaImage;
-///生成模糊圖
+///生成模糊圖(blur:0.0f  ~ 1.0f)
 - (UIImage *)azl_imageFromBoxBlur:(CGFloat)blur;
-///生成馬賽克圖
+///生成馬賽克圖(level，1以上)
 - (UIImage *)azl_imageFromMosaicLevel:(NSUInteger)level;
 ///旋轉圖片(rotateAngle是角度，如90，45)
 - (UIImage *)azl_imageFromRotate:(CGFloat)rotateAngle;
@@ -47,6 +47,8 @@
 - (UIImage *)azl_imageFromMirrorVertical;
 ///生成變色圖片
 - (UIImage *)azl_imageWithGradientTintColor:(UIColor *)tintColor;
+///生成变色图片并指定混合模式
+- (UIImage *)azl_imageWithTintColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
 
 ///獲取圖片上某一像素的色值
 - (UIColor *)azl_colorFromPoint:(CGPoint)point;
