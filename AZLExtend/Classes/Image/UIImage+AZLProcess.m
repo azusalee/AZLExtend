@@ -97,7 +97,7 @@
     return shotImage;
 }
 
-+ (CGImageRef)CGImageCreateDecoded:(CGImageRef)imageRef {
++ (CGImageRef)azl_CGImageCreateDecoded:(CGImageRef)imageRef {
     if (!imageRef) {
         return NULL;
     }
