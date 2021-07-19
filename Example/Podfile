@@ -11,3 +11,7 @@ target 'AZLExtend_Example' do
     
   end
 end
+
+target 'AZLExtendExampleSwift' do
+  pod 'AZLExtendSwift', :path => '../'
+end

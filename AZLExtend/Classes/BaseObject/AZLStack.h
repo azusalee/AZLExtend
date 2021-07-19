@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 堆栈结构对象(利用链表实现)
+/// 堆栈结构对象(利用链表实现)，后进先出
 @interface AZLStack : NSObject
 
 /// 压入一个对象
