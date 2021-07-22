@@ -13,6 +13,7 @@
 
 - (void)azl_addKeyboardNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(azl_keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(azl_keyboardDisappear:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)azl_removeKeyboardNotification {
@@ -32,6 +33,13 @@
             [self setContentOffset:targetOffset animated:YES];
         }
     }
+}
+
+- (void)azl_keyboardDisappear:(NSNotification*)notification {
+    if (self.contentOffset.y+self.bounds.size.height > self.contentSize.height) {
+        [self setContentOffset:CGPointMake(0, self.contentSize.height-self.bounds.size.height) animated:YES];
+    }
+   
 }
 
 @end

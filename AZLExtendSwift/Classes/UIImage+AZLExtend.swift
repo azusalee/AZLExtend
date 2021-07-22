@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accelerate
 
 public extension UIImage {
 
@@ -215,6 +216,27 @@ public extension UIImage {
             }
         }
         return nil
+    }
+    
+    func azl_boxBlurImage(blur:CGFloat) {
+        var fixBlur = blur
+        if blur < 0 || blur > 1 {
+            fixBlur = 0.5
+        }
+        
+        var boxSize:Int = Int(fixBlur*50)
+        boxSize = boxSize - (boxSize % 2) + 1
+        if let img = self.cgImage {
+            var inBuffer:vImage_Buffer = vImage_Buffer()
+            var outBuffer:vImage_Buffer = vImage_Buffer()
+            
+            if let inProvider = img.dataProvider {
+                let inBitmapData = inProvider.data
+                inBuffer.width = vImagePixelCount(img.width)
+                inBuffer.height = vImagePixelCount(img.height)
+                
+            }
+        }
     }
     
 }
