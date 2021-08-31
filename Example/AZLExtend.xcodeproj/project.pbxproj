@@ -31,6 +31,8 @@
 		8C2F3C8A26A5629600612B29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8826A5629600612B29 /* Main.storyboard */; };
 		8C2F3C8F26A5629900612B29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8D26A5629900612B29 /* LaunchScreen.storyboard */; };
 		8C9219DC26DDE01900D50EB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
+		8CF10D5B26DE122100154C76 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF10D5A26DE122000154C76 /* Accelerate.framework */; };
+		8CF10D5C26DE122A00154C76 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF10D5A26DE122000154C76 /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		8C2F3C8E26A5629900612B29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C2F3C9026A5629900612B29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2F3C9F26A5633D00612B29 /* AZLExtendSwift.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = AZLExtendSwift.podspec; path = ../AZLExtendSwift.podspec; sourceTree = "<group>"; };
+		8CF10D5A26DE122000154C76 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8DD66B5A4D6E125E860EC9A6 /* Pods-AZLExtend_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Tests.release.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Tests/Pods-AZLExtend_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8FAB976A70498DCEF1EF2007 /* Pods_AZLExtend_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtend_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtendExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF10D5C26DE122A00154C76 /* Accelerate.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF10D5B26DE122100154C76 /* Accelerate.framework in Frameworks */,
 				74D133223A9743605ECE6226 /* Pods_AZLExtendExampleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +166,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8CF10D5A26DE122000154C76 /* Accelerate.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,

@@ -12,6 +12,7 @@
 @interface AZLViewController ()
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -21,6 +22,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UIImage *image = [UIImage imageNamed:@"test_image"];
+    self.imageView.image = [image azl_imageFromBoxBlur:0.5];
 }
 
 - (void)didReceiveMemoryWarning

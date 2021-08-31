@@ -99,7 +99,7 @@ public extension UIImage {
     
     /// 把图片缩放到指定size
     func azl_scaleImage(size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
         self.draw(in: CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size))
         let scaleImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -231,8 +231,10 @@ public extension UIImage {
         
         var boxSize:Int = Int(fixBlur*50)
         boxSize = boxSize - (boxSize % 2) + 1
-        if let img = self.cgImage {
-            
+        
+        let tmpImage = self.azl_scaleImage(width: self.size.width)
+        
+        if let img = tmpImage?.cgImage {
             
             if let inProvider = img.dataProvider {
                 let height = vImagePixelCount(img.height)
@@ -250,12 +252,10 @@ public extension UIImage {
                 }
                 
                 vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
-                vImageBoxConvolve_ARGB8888(&outBuffer, &inBuffer, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
-                vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
+                //vImageBoxConvolve_ARGB8888(&outBuffer, &inBuffer, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
+                //vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
                 
-//                let ctx = CGContext(data: outBuffer.data, width: Int(outBuffer.width), height: Int(outBuffer.height), bitsPerComponent: 8, bytesPerRow: outBuffer.rowBytes, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue, releaseCallback: {(ptr1, ptr2) in
-//                }, releaseInfo: outData)
-                let ctx = CGContext.init(data: outBuffer.data, width: Int(outBuffer.width), height: Int(outBuffer.height), bitsPerComponent: 8, bytesPerRow: outBuffer.rowBytes, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) 
+                let ctx = CGContext.init(data: outBuffer.data, width: Int(outBuffer.width), height: Int(outBuffer.height), bitsPerComponent: 8, bytesPerRow: outBuffer.rowBytes, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: img.bitmapInfo.rawValue) 
                 
                 if let cgImage = ctx?.makeImage() {
                     return UIImage.init(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
