@@ -394,12 +394,8 @@ public extension UIImage {
             context.setBlendMode(.copy)
             context.translateBy(x: -pointx, y: -pointy)
             context.draw(cgImage, in: rect)
-            let r = bitmapData?.load(fromByteOffset: 0, as: UInt8.self) ?? 0
-            let g = bitmapData?.load(fromByteOffset: 1, as: UInt8.self) ?? 0
-            let b = bitmapData?.load(fromByteOffset: 2, as: UInt8.self) ?? 0
-            let a = bitmapData?.load(fromByteOffset: 3, as: UInt8.self) ?? 0
             
-            return UIColor(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: CGFloat(a)/255)
+            return bitmapData?.azl_loadAsRGBA8888Color(offset: 0)
         }
         
         return nil

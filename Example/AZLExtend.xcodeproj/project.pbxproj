@@ -25,6 +25,7 @@
 		74D133223A9743605ECE6226 /* Pods_AZLExtendExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */; };
 		7ED5FD9B7B3168D6B5CA9E69 /* Pods_AZLExtend_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6454387CC0FBCCD804FED143 /* Pods_AZLExtend_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8C10AA8F26DF29E800B78443 /* TestResponderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */; };
 		8C2F3C8326A5629600612B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8226A5629600612B29 /* AppDelegate.swift */; };
 		8C2F3C8526A5629600612B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8426A5629600612B29 /* SceneDelegate.swift */; };
 		8C2F3C8726A5629600612B29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8626A5629600612B29 /* ViewController.swift */; };
@@ -73,6 +74,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B0567C7A9BC2BC14C2E1DF8 /* Pods-AZLExtend_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Example.release.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Example/Pods-AZLExtend_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponderViewController.swift; sourceTree = "<group>"; };
 		8C2F3C8026A5629600612B29 /* AZLExtendExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZLExtendExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2F3C8226A5629600612B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C2F3C8426A5629600612B29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				8C2F3C8226A5629600612B29 /* AppDelegate.swift */,
 				8C2F3C8426A5629600612B29 /* SceneDelegate.swift */,
 				8C2F3C8626A5629600612B29 /* ViewController.swift */,
+				8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */,
 				8C2F3C8826A5629600612B29 /* Main.storyboard */,
 				8C2F3C8B26A5629900612B29 /* Assets.xcassets */,
 				8C2F3C8D26A5629900612B29 /* LaunchScreen.storyboard */,
@@ -514,6 +517,7 @@
 				8C2F3C8726A5629600612B29 /* ViewController.swift in Sources */,
 				8C2F3C8326A5629600612B29 /* AppDelegate.swift in Sources */,
 				8C2F3C8526A5629600612B29 /* SceneDelegate.swift in Sources */,
+				8C10AA8F26DF29E800B78443 /* TestResponderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

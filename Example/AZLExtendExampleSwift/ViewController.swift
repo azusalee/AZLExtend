@@ -21,6 +21,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.oriImageView.image = self.oriImage
         self.afterImageView.image = self.oriImage
+        
+//        let controller = TestResponderViewController()
+//        self.addChild(controller)
+//        self.view.addSubview(controller.view)
     }
 
     @IBAction func buttonDidTap(_ sender: Any) {
