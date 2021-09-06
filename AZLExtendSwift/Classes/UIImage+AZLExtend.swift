@@ -2,7 +2,7 @@
 //  BTSMapManager.swift
 //  tasker
 //
-//  Created by yangming on 2019/1/21.
+//  Created by lizihong on 2019/1/21.
 //  Copyright © 2019年 BT. All rights reserved.
 //
 
