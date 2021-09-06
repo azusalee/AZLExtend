@@ -47,4 +47,78 @@ extension UIView {
         }
         return nil
     }
+    
+    // 常用位置扩展
+    public func azl_top() -> CGFloat {
+        return self.frame.origin.y
+    }
+    
+    public func azl_left() -> CGFloat {
+        return self.frame.origin.x
+    }
+    
+    public func azl_width() -> CGFloat {
+        return self.frame.size.width
+    }
+    
+    public func azl_height() -> CGFloat {
+        return self.frame.size.height
+    }
+    
+    public func azl_right() -> CGFloat {
+        return self.azl_left()+self.azl_width()
+    }
+    
+    public func azl_bottom() -> CGFloat {
+        return self.azl_top()+self.azl_height()
+    }
+    
+    public func azl_centerX() -> CGFloat {
+        return self.center.x
+    }
+    
+    public func azl_centerY() -> CGFloat {
+        return self.center.y
+    }
+    
+    public func azl_set(top: CGFloat) {
+        var frame = self.frame
+        frame.origin.y = top
+        self.frame = frame
+    }
+    
+    public func azl_set(bottom: CGFloat) {
+        self.azl_set(top: bottom-self.azl_height())
+    }
+    
+    public func azl_set(left: CGFloat) {
+        var frame = self.frame
+        frame.origin.x = left
+        self.frame = frame 
+    }
+    
+    public func azl_set(right: CGFloat) {
+        self.azl_set(left: right-self.azl_width())
+    }
+    
+    public func azl_set(centerX: CGFloat) {
+        self.center = CGPoint.init(x: centerX, y: self.azl_centerY())
+    }
+    
+    public func azl_set(centerY: CGFloat) {
+        self.center = CGPoint.init(x: self.azl_centerX(), y: centerY)
+    }
+    
+    public func azl_set(width: CGFloat) {
+        var frame = self.frame
+        frame.size.width = width
+        self.frame = frame 
+    }
+     
+    public func azl_set(height: CGFloat) {
+        var frame = self.frame
+        frame.size.height = height
+        self.frame = frame 
+    }
+    
 }
