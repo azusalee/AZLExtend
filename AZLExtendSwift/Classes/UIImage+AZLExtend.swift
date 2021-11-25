@@ -147,10 +147,25 @@ public extension UIImage {
         return clipImage
     }
     
+    /// 圆角裁剪
+    func azl_clipCornerImage(radius: CGFloat, corners: UIRectCorner = .allCorners) -> UIImage? {
+        let size = self.size
+        UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()
+        
+        let path = UIBezierPath.init(roundedRect: CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size), byRoundingCorners: corners, cornerRadii: CGSize.init(width: radius, height: radius))
+        context?.addPath(path.cgPath)
+        context?.clip()
+        self.draw(at: CGPoint.init(x: 0, y: 0))
+        let clipImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return clipImage
+    }
+    
     /// 圆裁剪
     func azl_clipCircleImage(point: CGPoint, radius: CGFloat) -> UIImage? {
         let rect = CGRect.init(x: point.x-radius, y: point.y-radius, width: radius*2, height: radius*2)
-        return self.azl_clipImage(rect: rect)
+        return self.azl_clipCircleImage(rect: rect)
     }
     
     /// 灰度图

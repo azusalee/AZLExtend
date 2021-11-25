@@ -73,6 +73,10 @@ class ViewController: UIViewController {
             self.afterImageView.image = self.oriImage?.azl_tintImage(color: .red)
         }))
         
+        actionSheet.addAction(UIAlertAction.init(title: "圆角裁剪", style: .default, handler: { (action) in
+            self.afterImageView.image = self.oriImage?.azl_clipCornerImage(radius: 20)
+        }))
+        
         
         self.present(actionSheet, animated: true, completion: nil)
     }
