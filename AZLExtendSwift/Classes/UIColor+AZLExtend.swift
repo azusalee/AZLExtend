@@ -46,4 +46,22 @@ extension UIColor {
         
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(alpha))
     }
+    
+    /**
+    获取颜色的16进制argb色值
+     */
+    public func azl_argbValue() -> Int64 {
+        let myFloatForR = 0
+        var r = CGFloat(myFloatForR)
+        let myFloatForG = 0
+        var g = CGFloat(myFloatForG)
+        let myFloatForB = 0
+        var b = CGFloat(myFloatForB)
+        let myFloatForA = 0
+        var a = CGFloat(myFloatForA)
+        
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let colorValue: Int64 = (Int64)((Int64)(a*255)*256*256*256+(Int64)(r*255)*256*256+(Int64)(g*255)*256+(Int64)(b*255))
+        return colorValue
+    }
 }

@@ -407,7 +407,7 @@ public extension UIImage {
         
         if let context = CGContext.init(data: bitmapData, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGImageByteOrderInfo.order32Big.rawValue) {
             context.setBlendMode(.copy)
-            context.translateBy(x: -pointx, y: -pointy)
+            context.translateBy(x: -pointx, y: pointy-image.size.height+1)
             context.draw(cgImage, in: rect)
             
             return bitmapData?.azl_loadAsRGBA8888Color(offset: 0)

@@ -22,9 +22,29 @@ class ViewController: UIViewController {
         self.oriImageView.image = self.oriImage
         self.afterImageView.image = self.oriImage
         
+        self.oriImageView.isUserInteractionEnabled = true
+        
+        let tapGes = UITapGestureRecognizer.init(target: self, action: #selector(imageDidTap(gesture:)))
+        self.oriImageView.addGestureRecognizer(tapGes)
+        
 //        let controller = TestResponderViewController()
 //        self.addChild(controller)
 //        self.view.addSubview(controller.view)
+    }
+    
+    @objc
+    func imageDidTap(gesture: UITapGestureRecognizer) {
+        let point = gesture.location(in: self.oriImageView)
+        
+        let scale = self.oriImageView.image!.size.width/self.oriImageView.bounds.size.width
+        let newPoint = CGPoint.init(x: point.x*scale, y: point.y*scale)
+        let tapColor = self.oriImageView.image?.azl_color(point: newPoint)
+        
+        self.oriImageView.layer.shadowColor = tapColor?.cgColor
+        self.oriImageView.layer.shadowOffset = CGSize.init(width: 10, height: 10)
+        self.oriImageView.layer.shadowOpacity = 0.5
+        self.oriImageView.layer.shadowRadius = 8
+        print(tapColor)
     }
 
     @IBAction func buttonDidTap(_ sender: Any) {
@@ -55,7 +75,7 @@ class ViewController: UIViewController {
             self.afterImageView.image = self.oriImage?.azl_boxBlurImage(blur: 0.5)
         }))
         actionSheet.addAction(UIAlertAction.init(title: "马赛克", style: .default, handler: { (action) in
-            self.afterImageView.image = self.oriImage?.azl_mosaicImage(level: 6)
+            self.afterImageView.image = self.oriImage?.azl_mosaicImage(level: 8)
         }))
         
         actionSheet.addAction(UIAlertAction.init(title: "旋转", style: .default, handler: { (action) in
