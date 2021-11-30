@@ -8,7 +8,10 @@
 import UIKit
 
 extension UIViewController {
-    
+    /**
+    获取当前最顶层的ViewController
+    */ 
+    @objc
     public static func azl_topViewControllerInApp() -> UIViewController? {
         var controller = UIApplication.shared.keyWindow?.rootViewController
         
@@ -23,6 +26,7 @@ extension UIViewController {
         return controller
     }
     
+    @objc
     public func azl_topViewController() -> UIViewController? {
         if let navVC = self as? UINavigationController {
             return navVC.topViewController
@@ -35,10 +39,14 @@ extension UIViewController {
 }
 
 extension UINavigationController {
+    /**
+    获取当前最顶层的NavigationViewController
+    */ 
+    @objc
     public static func azl_topNaivgationControllerInApp() -> UINavigationController? {
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController
         var topViewController = rootViewController
-        var topNaviController:UINavigationController? = nil
+        var topNaviController: UINavigationController? = nil
         
         while topViewController != nil {
             if let naviVC = topViewController as? UINavigationController {

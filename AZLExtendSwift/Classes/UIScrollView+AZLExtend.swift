@@ -9,17 +9,20 @@ import UIKit
 
 extension UIScrollView {
     /// 添加自动根据键盘调整offset的行为
+    @objc
     public func azl_addAutoAdjustKeyboardAction() {
         NotificationCenter.default.addObserver(self, selector: #selector(UIScrollView.azl_keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(UIScrollView.azl_keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     /// 移除自动根据键盘调整offset的行为
+    @objc
     public func azl_removeAutoAdjustKeyboardAction() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    /// 键盘出现
     @objc
     func azl_keyboardWillAppear(notification:Notification) {
         if let responseView = self.azl_getResponseView() {
@@ -39,6 +42,7 @@ extension UIScrollView {
         }
     }
     
+    /// 键盘消失
     @objc 
     func azl_keyboardWillDisappear(notification:Notification) {
         if self.contentOffset.y+self.bounds.size.height > self.contentSize.height {

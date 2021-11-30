@@ -9,6 +9,7 @@ import UIKit
 
 extension UIView {
     /// 获取view所在的viewController
+    @objc
     public func azl_inViewController() -> UIViewController? {
         var view: UIView? = self
         while view != nil {
@@ -21,6 +22,7 @@ extension UIView {
     }
     
     /// 获取正在响应的子View
+    @objc
     public func azl_getResponseView() -> UIView? {
         if self.isFirstResponder {
             return self
@@ -34,6 +36,7 @@ extension UIView {
     }
     
     /// 获取某一点的颜色
+    @objc
     public func azl_color(point: CGPoint) -> UIColor? {
         let bitmapData = malloc(4)
         defer {
@@ -49,72 +52,88 @@ extension UIView {
     }
     
     // 常用位置扩展
+    @objc
     public func azl_top() -> CGFloat {
         return self.frame.origin.y
     }
     
+    @objc
     public func azl_left() -> CGFloat {
         return self.frame.origin.x
     }
     
+    @objc
     public func azl_width() -> CGFloat {
         return self.frame.size.width
     }
     
+    @objc
     public func azl_height() -> CGFloat {
         return self.frame.size.height
     }
     
+    @objc
     public func azl_right() -> CGFloat {
         return self.azl_left()+self.azl_width()
     }
     
+    @objc
     public func azl_bottom() -> CGFloat {
         return self.azl_top()+self.azl_height()
     }
     
+    @objc
     public func azl_centerX() -> CGFloat {
         return self.center.x
     }
     
+    @objc
     public func azl_centerY() -> CGFloat {
         return self.center.y
     }
     
+    @objc
     public func azl_set(top: CGFloat) {
         var frame = self.frame
         frame.origin.y = top
         self.frame = frame
     }
     
+    @objc
     public func azl_set(bottom: CGFloat) {
         self.azl_set(top: bottom-self.azl_height())
     }
     
+    @objc
     public func azl_set(left: CGFloat) {
         var frame = self.frame
         frame.origin.x = left
         self.frame = frame 
     }
     
+    @objc
     public func azl_set(right: CGFloat) {
         self.azl_set(left: right-self.azl_width())
     }
     
+    @objc
     public func azl_set(centerX: CGFloat) {
         self.center = CGPoint.init(x: centerX, y: self.azl_centerY())
     }
     
+    @objc
     public func azl_set(centerY: CGFloat) {
         self.center = CGPoint.init(x: self.azl_centerX(), y: centerY)
     }
     
+    @objc
     public func azl_set(width: CGFloat) {
         var frame = self.frame
         frame.size.width = width
         self.frame = frame 
     }
-     
+    
+    @objc
     public func azl_set(height: CGFloat) {
         var frame = self.frame
         frame.size.height = height

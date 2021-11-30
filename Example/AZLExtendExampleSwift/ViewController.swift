@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         let scale = self.oriImageView.image!.size.width/self.oriImageView.bounds.size.width
         let newPoint = CGPoint.init(x: point.x*scale, y: point.y*scale)
         let tapColor = self.oriImageView.image?.azl_color(point: newPoint)
+        //let tapColor = self.oriImageView.azl_color(point: point)
         
         self.oriImageView.layer.shadowColor = tapColor?.cgColor
         self.oriImageView.layer.shadowOffset = CGSize.init(width: 10, height: 10)

@@ -9,17 +9,20 @@ import UIKit
 
 extension UIColor {
 
-    // 从16进制数字生成颜色(rgb)
+    /// 从16进制数字生成颜色(rgb)
+    @objc
     public static func azl_hexRGB(rgbValue: Int, _ alpha: Float = 1.0) -> UIColor {
         return UIColor(red: CGFloat(CGFloat((rgbValue & 0xFF0000) >> 16)/255), green: CGFloat(CGFloat((rgbValue & 0xFF00) >> 8)/255), blue: CGFloat(CGFloat(rgbValue & 0xFF)/255), alpha: CGFloat(alpha))
     }
 
-    // 从16进制数字生成颜色(argb)
+    /// 从16进制数字生成颜色(argb)
+    @objc
     public static func azl_hexARGB(argbValue: Int64) -> UIColor {
         return UIColor(red: CGFloat(CGFloat((argbValue & 0xFF0000) >> 16)/255), green: CGFloat(CGFloat((argbValue & 0xFF00) >> 8)/255), blue: CGFloat(CGFloat(argbValue & 0xFF)/255), alpha: CGFloat(CGFloat((argbValue & 0xFF000000) >> 24)/255))
     }
     
-    // 从16进制字符串生成颜色(#FFFFFF)
+    /// 从16进制字符串生成颜色(#FFFFFF)
+    @objc
     public static func azl_hexString(colorStr: String, _ alpha: Float = 1.0) -> UIColor {
         var cString: String = colorStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
@@ -50,6 +53,7 @@ extension UIColor {
     /**
     获取颜色的16进制argb色值
      */
+    @objc
     public func azl_argbValue() -> Int64 {
         let myFloatForR = 0
         var r = CGFloat(myFloatForR)
