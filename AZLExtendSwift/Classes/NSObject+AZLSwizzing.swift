@@ -8,7 +8,11 @@
 import Foundation
 
 public extension NSObject {
-    /// 交换实例方法
+    /**
+     交换实例方法
+     @param oriSel 原始方法
+     @param swizzleSel 交换方法
+     */ 
     @objc
     class func azl_swizzleInstanceFunc(oriSel: Selector, swizzleSel: Selector) {
         let originalMethod = class_getInstanceMethod(self, oriSel)
@@ -24,7 +28,11 @@ public extension NSObject {
         }
     }
     
-    /// 交换类方法
+    /**
+     交换类方法
+     @param oriSel 原始方法
+     @param swizzleSel 交换方法
+     */ 
     @objc
     class func azl_swizzleClassFunc(oriSel: Selector, swizzleSel: Selector) {
         

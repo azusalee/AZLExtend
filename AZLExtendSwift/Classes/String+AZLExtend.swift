@@ -9,7 +9,10 @@ import Foundation
 import CommonCrypto
 
 extension String {
-    /// md5
+    /**
+    计算该字符串的MD5值
+    @return String md5字符串
+     */
     public func azl_md5String() -> String {
         let cStrl = self.cString(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue));
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16);
@@ -23,7 +26,12 @@ extension String {
         return md5String
     }
     
-    /// 字符串截取
+    /**
+    字符串截取
+    @param location 截取的开始位置
+    @param length 截取的长度
+    @return String 截取的字符串
+    */ 
     public func azl_subString(location: Int, length: Int) -> String {
         
         if self.count >= location + length {
@@ -38,7 +46,11 @@ extension String {
         }
     }
     
-    /// 获取所有子字符串的位置
+    /**
+    获取子字符串的所有位置
+    @param subString 要查找的字符串
+    @return [Range<String.Index>] 位置范围数组
+    */ 
     public func azl_ranges(subString: String) -> [Range<String.Index>] {
         var rangeArray = [Range<String.Index>]()
         var searchedRange: Range<String.Index>
@@ -56,13 +68,19 @@ extension String {
         return rangeArray
     }
     
-    /// utf8转base64
+    /**
+    utf8转base64
+    @return String base64字符串
+    */ 
     public func azl_utf8ToBase64() -> String? {
         let data = self.data(using: .utf8)
         return data?.base64EncodedString()
     }
     
-    /// base64转utf8
+    /**
+    base64转utf8
+    @return String utf8字符串
+    */ 
     public func azl_base64ToUtf8() -> String? {
         if let data = Data.init(base64Encoded: self) {
             return String.init(data: data, encoding: .utf8)
@@ -70,7 +88,11 @@ extension String {
         return nil
     }
     
-    /// ut8数据有损坏时，可用此方法去尝试解析(可能会比较耗时)
+    /**
+    ut8数据有损坏时，可用此方法去尝试解析(可能会比较耗时)
+    @param data 数据
+    @return String utf8字符串
+    */ 
     public static func azl_forceDecodeUtf8(data: Data) -> String {
         if let string = String.init(data: data, encoding: .utf8) {
             return string

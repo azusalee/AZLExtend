@@ -9,7 +9,8 @@ import UIKit
 
 extension UIViewController {
     /**
-    获取当前最顶层的ViewController
+    获取当前keyWindow最顶层的ViewController
+    @return UIViewController 当前最顶层的ViewController
     */ 
     @objc
     public static func azl_topViewControllerInApp() -> UIViewController? {
@@ -26,6 +27,13 @@ extension UIViewController {
         return controller
     }
     
+    /**
+    最顶层的ViewController
+    UINavigationController 是topViewController
+    UITabBarController 是selectedViewController
+    其他会返回自身
+    @return UIViewController
+     */
     @objc
     public func azl_topViewController() -> UIViewController? {
         if let navVC = self as? UINavigationController {
@@ -40,7 +48,8 @@ extension UIViewController {
 
 extension UINavigationController {
     /**
-    获取当前最顶层的NavigationViewController
+    获取当前keyWindow最顶层的NavigationViewController
+    @return UINavigationController
     */ 
     @objc
     public static func azl_topNaivgationControllerInApp() -> UINavigationController? {

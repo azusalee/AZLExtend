@@ -8,7 +8,10 @@
 import UIKit
 
 extension UIView {
-    /// 获取view所在的viewController
+    /**
+    获取view所在的viewController
+    @return UIViewController view所在的viewController
+    */ 
     @objc
     public func azl_inViewController() -> UIViewController? {
         var view: UIView? = self
@@ -21,7 +24,10 @@ extension UIView {
         return nil
     }
     
-    /// 获取正在响应的子View
+    /**
+    获取正在响应的子View
+    @return UIVIew 正在响应的子View
+    */ 
     @objc
     public func azl_getResponseView() -> UIView? {
         if self.isFirstResponder {
@@ -35,7 +41,11 @@ extension UIView {
         return nil
     }
     
-    /// 获取某一点的颜色
+    /**
+    获取某一点的颜色
+    @param point 要取颜色的点
+    @return UIColor 颜色
+    */
     @objc
     public func azl_color(point: CGPoint) -> UIColor? {
         let bitmapData = malloc(4)
@@ -51,7 +61,7 @@ extension UIView {
         return nil
     }
     
-    // 常用位置扩展
+    // ---- 常用位置扩展
     @objc
     public func azl_top() -> CGFloat {
         return self.frame.origin.y
