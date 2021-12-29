@@ -1,5 +1,5 @@
 //
-//  Int+AZLExnted.swift
+//  Int+AZLExtend.swift
 //  AZLExtendSwift
 //
 //  Created by lizihong on 2021/10/14.
