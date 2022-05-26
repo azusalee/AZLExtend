@@ -87,11 +87,8 @@ public extension UIImage {
     class func azl_imageFrom(view: UIView) -> UIImage? {
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, scale)
-        var image:UIImage?
-        if let context = UIGraphicsGetCurrentContext() {
-            view.layer.render(in: context)
-            image = UIGraphicsGetImageFromCurrentImageContext()
-        }
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return image

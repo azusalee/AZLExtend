@@ -30,6 +30,16 @@ class ViewController: UIViewController {
 //        let controller = TestResponderViewController()
 //        self.addChild(controller)
 //        self.view.addSubview(controller.view)
+
+//        DispatchQueue.main.asyncAfter(deadline: .now()+3) { 
+//            let snapImage = UIImage.azl_imageFrom(view: self.view)
+//            let imageView = UIImageView.init(frame: self.view.bounds)
+//            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            imageView.contentMode = .top
+//            imageView.image = snapImage
+//            self.view.addSubview(imageView)
+//        }
+        
     }
     
     @objc
