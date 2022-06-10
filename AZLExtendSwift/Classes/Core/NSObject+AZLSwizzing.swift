@@ -8,11 +8,11 @@
 import Foundation
 
 public extension NSObject {
-    /**
-     交换实例方法
-     @param oriSel 原始方法
-     @param swizzleSel 交换方法
-     */ 
+     
+    /// 交换实例方法
+    /// - Parameters:
+    ///   - oriSel: 原始方法 (方法需要有dynamic关键字修饰)
+    ///   - swizzleSel: 交换方法
     @objc
     class func azl_swizzleInstanceFunc(oriSel: Selector, swizzleSel: Selector) {
         let originalMethod = class_getInstanceMethod(self, oriSel)
@@ -28,22 +28,21 @@ public extension NSObject {
         }
     }
     
-    /**
-     交换类方法
-     @param oriSel 原始方法
-     @param swizzleSel 交换方法
-     */ 
+    /// 交换类方法
+    /// - Parameters:
+    ///   - oriSel: 原始方法(方法需要有dynamic关键字修饰)
+    ///   - swizzleSel: 交换方法
     @objc
     class func azl_swizzleClassFunc(oriSel: Selector, swizzleSel: Selector) {
+        let cls: AnyClass? = object_getClass(self)
+        let originalMethod = class_getClassMethod(cls, oriSel)
+        let swizzledMethod = class_getClassMethod(cls, swizzleSel)
         
-        let originalMethod = class_getClassMethod(self, oriSel)
-        let swizzledMethod = class_getClassMethod(self, swizzleSel)
-        
-        let didAddMethod: Bool = class_addMethod(self, oriSel, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
+        let didAddMethod: Bool = class_addMethod(cls, oriSel, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
         //如果 class_addMethod 返回 yes,说明当前类中没有要替换方法的实现,所以需要在父类中查找,这时候就用到 method_getImplemetation 去获取 class_getInstanceMethod 里面的方法实现,然后再进行 class_replaceMethod 来实现 Swizzing
         
         if didAddMethod {
-            class_replaceMethod(self, swizzleSel, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
+            class_replaceMethod(cls, swizzleSel, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
         } else {
             method_exchangeImplementations(originalMethod!, swizzledMethod!)
         }

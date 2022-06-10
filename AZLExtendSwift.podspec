@@ -41,10 +41,16 @@ TODO: Add long description of the pod here.
   #s.frameworks = 'UIKit', 'Accelerate'
   #s.libraries = 'CommonCrypto'
   # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.default_subspecs = 'Core', 'UI'
   
   
   s.subspec 'Core' do |core|
-    core.source_files = 'AZLExtendSwift/Classes/**/*'
+    core.source_files = 'AZLExtendSwift/Classes/Core/**/*'
+  end
+
+  s.subspec 'UI' do |ui|
+    ui.source_files = 'AZLExtendSwift/Classes/UI/**/*'
   end
   
 end

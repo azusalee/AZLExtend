@@ -25,8 +25,13 @@
 		74D133223A9743605ECE6226 /* Pods_AZLExtendExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */; };
 		7ED5FD9B7B3168D6B5CA9E69 /* Pods_AZLExtend_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6454387CC0FBCCD804FED143 /* Pods_AZLExtend_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		8C0953BB2851F69300022E5E /* AZLExtendExampleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */; };
 		8C0953C22851F6BE00022E5E /* AZLStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0953C12851F6BE00022E5E /* AZLStringTests.swift */; };
+		8C0F58442852DDC9002D23AE /* AZLDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F58432852DDC9002D23AE /* AZLDataTests.swift */; };
+		8C0F58462852DE54002D23AE /* AZLDoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F58452852DE54002D23AE /* AZLDoubleTests.swift */; };
+		8C0F58482852DF41002D23AE /* AZLIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F58472852DF41002D23AE /* AZLIntTests.swift */; };
+		8C0F584A2852E065002D23AE /* AZLRawPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */; };
+		8C0F584C2852E992002D23AE /* AZLNSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */; };
+		8C0F58512852F89A002D23AE /* MyTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F584D2852F4C7002D23AE /* MyTestObject.swift */; };
 		8C10AA8F26DF29E800B78443 /* TestResponderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */; };
 		8C2F3C8326A5629600612B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8226A5629600612B29 /* AppDelegate.swift */; };
 		8C2F3C8526A5629600612B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8426A5629600612B29 /* SceneDelegate.swift */; };
@@ -86,8 +91,13 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B0567C7A9BC2BC14C2E1DF8 /* Pods-AZLExtend_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Example.release.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Example/Pods-AZLExtend_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8C0953B82851F69200022E5E /* AZLExtendExampleSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AZLExtendExampleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLExtendExampleSwiftTests.swift; sourceTree = "<group>"; };
 		8C0953C12851F6BE00022E5E /* AZLStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLStringTests.swift; sourceTree = "<group>"; };
+		8C0F58432852DDC9002D23AE /* AZLDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLDataTests.swift; sourceTree = "<group>"; };
+		8C0F58452852DE54002D23AE /* AZLDoubleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLDoubleTests.swift; sourceTree = "<group>"; };
+		8C0F58472852DF41002D23AE /* AZLIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLIntTests.swift; sourceTree = "<group>"; };
+		8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLRawPointerTests.swift; sourceTree = "<group>"; };
+		8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLNSObjectTests.swift; sourceTree = "<group>"; };
+		8C0F584D2852F4C7002D23AE /* MyTestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestObject.swift; sourceTree = "<group>"; };
 		8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponderViewController.swift; sourceTree = "<group>"; };
 		8C2F3C8026A5629600612B29 /* AZLExtendExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZLExtendExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2F3C8226A5629600612B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -269,8 +279,13 @@
 		8C0953B92851F69300022E5E /* AZLExtendExampleSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */,
+				8C0F584D2852F4C7002D23AE /* MyTestObject.swift */,
 				8C0953C12851F6BE00022E5E /* AZLStringTests.swift */,
+				8C0F58432852DDC9002D23AE /* AZLDataTests.swift */,
+				8C0F58452852DE54002D23AE /* AZLDoubleTests.swift */,
+				8C0F58472852DF41002D23AE /* AZLIntTests.swift */,
+				8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */,
+				8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */,
 			);
 			path = AZLExtendExampleSwiftTests;
 			sourceTree = "<group>";
@@ -607,8 +622,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0F58462852DE54002D23AE /* AZLDoubleTests.swift in Sources */,
+				8C0F58482852DF41002D23AE /* AZLIntTests.swift in Sources */,
 				8C0953C22851F6BE00022E5E /* AZLStringTests.swift in Sources */,
-				8C0953BB2851F69300022E5E /* AZLExtendExampleSwiftTests.swift in Sources */,
+				8C0F58442852DDC9002D23AE /* AZLDataTests.swift in Sources */,
+				8C0F584A2852E065002D23AE /* AZLRawPointerTests.swift in Sources */,
+				8C0F584C2852E992002D23AE /* AZLNSObjectTests.swift in Sources */,
+				8C0F58512852F89A002D23AE /* MyTestObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

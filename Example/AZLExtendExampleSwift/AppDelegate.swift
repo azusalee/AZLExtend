@@ -8,13 +8,24 @@
 
 import UIKit
 
+extension ViewController {
+    class func swizzleFunc() {
+        self.azl_swizzleInstanceFunc(oriSel: #selector(viewDidLoad), swizzleSel: #selector(swz_viewDidLoad))
+    }
+
+    @objc func swz_viewDidLoad() {
+        self.swz_viewDidLoad()
+        print("交换方法成功")
+    }
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        ViewController.swizzleFunc()
+        
         return true
     }
 

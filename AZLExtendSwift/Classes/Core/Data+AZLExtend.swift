@@ -9,11 +9,9 @@ import Foundation
 
 extension Data {
 
-    /**
-    获取数据的16进制字符串
-    @return String 16进制字符串
-     */
-    func azl_hexString() -> String {
+    /// 获取数据的16进制字符串
+    /// - Returns: 16进制字符串
+    public func azl_hexString() -> String {
         return self.map { intValue in
             String(format: "%02x", intValue)
         }.joined(separator: "")

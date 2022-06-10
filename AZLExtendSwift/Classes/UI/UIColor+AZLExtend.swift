@@ -7,6 +7,18 @@
 
 import UIKit
 
+extension UnsafeMutableRawPointer {
+    
+    /// 当作RGBA8888颜色来读取
+    /// - Parameter offset: 偏移量
+    /// - Returns: 颜色
+    public func azl_loadAsRGBA8888Color(offset: Int) -> UIColor {
+        let colorData = self.azl_loadAsRGBA8888(offset: offset)
+        let color = UIColor(red: CGFloat(colorData.r)/255, green: CGFloat(colorData.g)/255, blue: CGFloat(colorData.b)/255, alpha: CGFloat(colorData.a)/255)
+        return color
+    }
+}
+
 extension UIColor {
 
     /**
