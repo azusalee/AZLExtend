@@ -20,36 +20,32 @@ extension UnsafeMutableRawPointer {
 }
 
 extension UIColor {
-
-    /**
-    从16进制数字生成颜色
-    @param rgbValue 16进制rgb色值 例0xffffff
-    @param alpha 透明 取值[0, 1]
-    @return UIColor 颜色对象
-    */ 
+    
+    /// 从16进制数字生成颜色
+    /// - Parameters:
+    ///   - rgbValue: 16进制rgb色值 例0xffffff
+    ///   - alpha: 透明 取值[0, 1]
+    /// - Returns: UIColor 颜色对象
     @objc
-    public static func azl_hexRGB(rgbValue: Int, _ alpha: Float = 1.0) -> UIColor {
+    public static func azl_createColor(rgbValue: Int, _ alpha: Float = 1.0) -> UIColor {
         return UIColor(red: CGFloat(CGFloat((rgbValue & 0xFF0000) >> 16)/255), green: CGFloat(CGFloat((rgbValue & 0xFF00) >> 8)/255), blue: CGFloat(CGFloat(rgbValue & 0xFF)/255), alpha: CGFloat(alpha))
     }
-
-    /**
-    从16进制数字生成颜色
-    @param argbValue 16进制argb色值 例0xffffffff
-    @return UIColor 颜色对象
-    */ 
+    
+    /// 从16进制数字生成颜色
+    /// - Parameter argbValue: 16进制argb色值 例0xffffffff
+    /// - Returns: 颜色对象
     @objc
-    public static func azl_hexARGB(argbValue: Int64) -> UIColor {
+    public static func azl_createColor(argbValue: Int64) -> UIColor {
         return UIColor(red: CGFloat(CGFloat((argbValue & 0xFF0000) >> 16)/255), green: CGFloat(CGFloat((argbValue & 0xFF00) >> 8)/255), blue: CGFloat(CGFloat(argbValue & 0xFF)/255), alpha: CGFloat(CGFloat((argbValue & 0xFF000000) >> 24)/255))
     }
     
-    /**
-    从16进制字符串生成颜色
-    @param colorStr 16进制rgb色值字符串 例"#ffffff"
-    @param alpha 透明 取值[0, 1]
-    @return UIColor 颜色对象
-    */ 
+    /// 从16进制字符串生成颜色
+    /// - Parameters:
+    ///   - colorStr: 16进制rgb色值字符串 例"#ffffff"
+    ///   - alpha: 透明 取值[0, 1]
+    /// - Returns: UIColor 颜色对象
     @objc
-    public static func azl_hexString(colorStr: String, _ alpha: Float = 1.0) -> UIColor {
+    public static func azl_createColor(colorStr: String, _ alpha: Float = 1.0) -> UIColor {
         var cString: String = colorStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
         if cString.hasPrefix("#") {
@@ -76,10 +72,8 @@ extension UIColor {
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(alpha))
     }
     
-    /**
-    获取颜色的16进制argb色值
-    @return Int64 ARGB色值的整形数字 如 白色 0xffffffff
-     */
+    /// 获取颜色的16进制argb色值
+    /// - Returns: Int64 ARGB色值的整形数字 如 白色 0xffffffff
     @objc
     public func azl_argbValue() -> Int64 {
         let myFloatForR = 0

@@ -8,18 +8,26 @@
 import UIKit
 
 extension UIViewController {
-    /**
-    获取当前keyWindow最顶层的ViewController
-    @return UIViewController 当前最顶层的ViewController
-    */ 
+
+    /// 获取当前keyWindow最顶层的ViewController
+    /// - Returns: 当前最顶层的ViewController
     @objc
     public static func azl_topViewControllerInApp() -> UIViewController? {
-        var controller = UIApplication.shared.keyWindow?.rootViewController
+        if let window = UIApplication.shared.keyWindow {
+            return self.azl_topViewController(window: window)
+        }
+        return nil
+    }
+    
+    /// 获取当前指定window最顶层的ViewController
+    /// - Returns: 当前最顶层的ViewController
+    @objc
+    public static func azl_topViewController(window: UIWindow) -> UIViewController? {
+        var controller = window.rootViewController
         
         while controller?.presentedViewController != nil {
             controller = controller?.presentedViewController
         }
-        
         while controller != controller?.azl_topViewController() {
             controller = controller?.azl_topViewController()
         }
@@ -27,13 +35,12 @@ extension UIViewController {
         return controller
     }
     
-    /**
-    最顶层的ViewController
-    UINavigationController 是topViewController
-    UITabBarController 是selectedViewController
-    其他会返回自身
-    @return UIViewController
-     */
+    
+    /// 最顶层的ViewController
+    /// UINavigationController 是topViewController
+    /// UITabBarController 是selectedViewController
+    /// 其他会返回自身
+    /// - Returns: controller
     @objc
     public func azl_topViewController() -> UIViewController? {
         if let navVC = self as? UINavigationController {
@@ -47,13 +54,22 @@ extension UIViewController {
 }
 
 extension UINavigationController {
-    /**
-    获取当前keyWindow最顶层的NavigationViewController
-    @return UINavigationController
-    */ 
+  
+    /// 获取当前keyWindow最顶层的NavigationViewController
+    /// - Returns: UINavigationController
     @objc
     public static func azl_topNaivgationControllerInApp() -> UINavigationController? {
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        if let window = UIApplication.shared.keyWindow {
+            return self.azl_topNaivgationController(window: window)
+        }
+        return nil
+    }
+    
+    /// 获取当前指定window最顶层的NavigationViewController
+    /// - Returns: UINavigationController
+    @objc
+    public static func azl_topNaivgationController(window: UIWindow) -> UINavigationController? {
+        let rootViewController = window.rootViewController
         var topViewController = rootViewController
         var topNaviController: UINavigationController? = nil
         

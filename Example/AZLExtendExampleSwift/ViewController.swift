@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         }))
         
         actionSheet.addAction(UIAlertAction.init(title: "变色", style: .default, handler: { (action) in
-            self.afterImageView.image = self.oriImage?.azl_tintImage(color: .red)
+            self.afterImageView.image = self.oriImage?.azl_tintImage(color: .red, blendMode: .multiply)
         }))
         
         actionSheet.addAction(UIAlertAction.init(title: "圆角裁剪", style: .default, handler: { (action) in

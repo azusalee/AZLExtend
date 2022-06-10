@@ -9,15 +9,14 @@ import UIKit
 import Accelerate
 
 public extension UIImage {
-
-    /**
-    从url生成缩略图(指定大小)
-    @param url 本地的路径url
-    @param size 生成的图片大小
-    @return UIImage 图片对象
-    */
-    @objc
-    class func azl_imageFrom(url: URL, size: CGSize) -> UIImage? {
+    
+    
+    /// 从url生成缩略图(指定大小)
+    /// - Parameters:
+    ///   - url: 本地的路径url
+    ///   - size: 生成的图片大小
+    /// - Returns: 图片对象
+    @objc class func azl_imageFrom(url: URL, size: CGSize) -> UIImage? {
         let scale = UIScreen.main.scale
         
         let sourceOpt = [kCGImageSourceShouldCache : false] as CFDictionary
@@ -35,14 +34,12 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    从data生成缩略图(指定大小)
-    @param data 图片的data数据
-    @param size 生成的图片大小
-    @return UIImage 图片对象
-    */ 
-    @objc
-    class func azl_imageFrom(data: Data, size: CGSize) -> UIImage? {
+    /// 从data生成缩略图(指定大小)
+    /// - Parameters:
+    ///   - data: 图片的data数据
+    ///   - size: 生成的图片大小
+    /// - Returns: 图片对象
+    @objc class func azl_imageFrom(data: Data, size: CGSize) -> UIImage? {
         let scale = UIScreen.main.scale
         
         let sourceOpt = [kCGImageSourceShouldCache : false] as CFDictionary
@@ -60,14 +57,12 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    生成纯色图片
-    @param color 颜色
-    @param size 大小
-    @return UIImage 图片对象
-    */ 
-    @objc
-    class func azl_imageFrom(color: UIColor, size: CGSize = CGSize.init(width: 1, height: 1)) -> UIImage? {
+    /// 生成纯色图片
+    /// - Parameters:
+    ///   - color: 颜色
+    ///   - size: 大小
+    /// - Returns: 图片对象
+    @objc class func azl_imageFrom(color: UIColor, size: CGSize = CGSize.init(width: 1, height: 1)) -> UIImage? {
         let rect = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -78,13 +73,10 @@ public extension UIImage {
         return image
     }
     
-    /**
-    从view生成图片(截图)
-    @param view 视图对象
-    @param UIImage 图片对象
-    */ 
-    @objc
-    class func azl_imageFrom(view: UIView) -> UIImage? {
+    /// 从view生成图片(截图)
+    /// - Parameter view: 视图对象
+    /// - Returns: 图片对象
+    @objc class func azl_imageFrom(view: UIView) -> UIImage? {
         let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, scale)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
@@ -94,13 +86,10 @@ public extension UIImage {
         return image
     }
     
-    /**
-    预解压
-    @param cgImage 解压前的图片
-    @param CGImage 解压后的图片
-     */
-    @objc
-    class func azl_preDecode(cgImage: CGImage) -> CGImage? {
+    /// 预解压
+    /// - Parameter cgImage: 解压前的图片
+    /// - Returns: 解压后的图片
+    @objc class func azl_preDecode(cgImage: CGImage) -> CGImage? {
         let width = cgImage.width
         let height = cgImage.height
         
@@ -121,13 +110,10 @@ public extension UIImage {
     
     // ----  实例方法
     
-    /**
-    把图片缩放到指定size
-    @param size 图片大小
-    @return UIImage 图片对象
-     */
-    @objc
-    func azl_scaleImage(size: CGSize) -> UIImage? {
+    /// 把图片缩放到指定size
+    /// - Parameter size: 图片大小
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
         self.draw(in: CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size))
         let scaleImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -136,13 +122,10 @@ public extension UIImage {
         return scaleImage
     }
     
-    /**
-    根据宽等比缩放
-    @param width 缩放后的宽度
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_scaleImage(width: CGFloat) -> UIImage? {
+    /// 根据宽等比缩放
+    /// - Parameter width: 缩放后的宽度
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(width: CGFloat) -> UIImage? {
         if self.size.width == 0 || self.size.height == 0 {
             return nil
         }
@@ -150,13 +133,10 @@ public extension UIImage {
         return self.azl_scaleImage(size: CGSize.init(width: width, height: height))
     }
     
-    /**
-    根据高等比缩放
-    @param height 缩放后的高度
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_scaleImage(height: CGFloat) -> UIImage? {
+    /// 根据高等比缩放
+    /// - Parameter height: 缩放后的高度
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(height: CGFloat) -> UIImage? {
         if self.size.width == 0 || self.size.height == 0 {
             return nil
         }
@@ -164,13 +144,10 @@ public extension UIImage {
         return self.azl_scaleImage(size: CGSize.init(width: width, height: height))
     }
     
-    /**
-    裁剪图片
-    @param rect 裁剪的范围
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_clipImage(rect: CGRect) -> UIImage? {
+    /// 裁剪图片
+    /// - Parameter rect:  裁剪的范围
+    /// - Returns: 图片对象
+    @objc func azl_clipImage(rect: CGRect) -> UIImage? {
         let scale = self.scale
         if let subImage = self.cgImage?.cropping(to: CGRect.init(x: rect.origin.x*scale, y: rect.origin.y*scale, width: rect.size.width*scale, height: rect.size.height*scale)) {
             return UIImage(cgImage: subImage, scale: scale, orientation: self.imageOrientation)
@@ -178,13 +155,10 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    内切圆(椭圆)裁剪
-    @param rect 裁剪的范围
-    @return UIImage 图片对象
-     */
-    @objc
-    func azl_clipCircleImage(rect: CGRect) -> UIImage? {
+    /// 内切圆(椭圆)裁剪
+    /// - Parameter rect: 裁剪的范围
+    /// - Returns: 图片对象
+    @objc func azl_clipCircleImage(rect: CGRect) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, self.scale)
         let context = UIGraphicsGetCurrentContext()
         
@@ -196,14 +170,12 @@ public extension UIImage {
         return clipImage
     }
     
-    /**
-    圆角裁剪
-    @param radius 圆角半径
-    @param corners 需要裁剪的圆角
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_clipCornerImage(radius: CGFloat, corners: UIRectCorner = .allCorners) -> UIImage? {
+    /// 圆角裁剪
+    /// - Parameters:
+    ///   - radius: 圆角半径
+    ///   - corners: 需要裁剪的圆角
+    /// - Returns: 图片对象
+    @objc func azl_clipCornerImage(radius: CGFloat, corners: UIRectCorner = .allCorners) -> UIImage? {
         let size = self.size
         UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
         let context = UIGraphicsGetCurrentContext()
@@ -217,24 +189,19 @@ public extension UIImage {
         return clipImage
     }
     
-    /**
-    圆裁剪
-    @param point 圆心
-    @param radius 半径
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_clipCircleImage(point: CGPoint, radius: CGFloat) -> UIImage? {
+    /// 圆裁剪
+    /// - Parameters:
+    ///   - point: 圆心
+    ///   - radius: 半径
+    /// - Returns: 图片对象
+    @objc func azl_clipCircleImage(point: CGPoint, radius: CGFloat) -> UIImage? {
         let rect = CGRect.init(x: point.x-radius, y: point.y-radius, width: radius*2, height: radius*2)
         return self.azl_clipCircleImage(rect: rect)
     }
     
-    /**
-    灰度图
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_grayImage() -> UIImage? {
+    /// 灰度图
+    /// - Returns: 图片对象
+    @objc func azl_grayImage() -> UIImage? {
         let width:Int = Int(self.size.width*self.scale)
         let height:Int = Int(self.size.height*self.scale)
         
@@ -250,12 +217,9 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    灰度渐隐
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_grayAlphaImage() -> UIImage? {
+    /// 灰度渐隐
+    /// - Returns: 图片对象
+    @objc func azl_grayAlphaImage() -> UIImage? {
         if let imageRef = self.cgImage {
             let width = imageRef.width
             let height = imageRef.height
@@ -306,13 +270,10 @@ public extension UIImage {
         return nil
     }
     
-    
-    /**
-    模糊图
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_boxBlurImage(blur: CGFloat) -> UIImage? {
+    /// 模糊图
+    /// - Parameter blur: 模糊值
+    /// - Returns: 图片对象
+    @objc func azl_boxBlurImage(blur: CGFloat) -> UIImage? {
         var fixBlur = blur
         if blur < 0 || blur > 1 {
             fixBlur = 0.5
@@ -356,13 +317,10 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    马赛克图
-    @param level 马赛克大小
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_mosaicImage(level: Int) -> UIImage? {
+    /// 马赛克图
+    /// - Parameter level: 马赛克大小 (4代表一格马赛克占4*4)
+    /// - Returns: 图片对象
+    @objc func azl_mosaicImage(level: Int) -> UIImage? {
         if level < 2 {
             return self
         }
@@ -390,7 +348,6 @@ public extension UIImage {
                         if j%level == 0 {
                             if i%level != 0 {
                                 preIndex = j*width+i-1
-                                
                             }
                         }else{
                             preIndex = (j-1)*width+i
@@ -423,13 +380,10 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    旋转角度（如90，180之类的）
-    @param rotateAngle 旋转角度（如90，180之类的）
-    @return UIImage 图片对象
-    */
-    @objc
-    func azl_rotateImage(rotateAngle: Double) -> UIImage? {
+    /// 旋转角度（如90，180之类的）
+    /// - Parameter rotateAngle: 旋转角度（如90，180之类的）
+    /// - Returns: 图片对象
+    @objc func azl_rotateImage(rotateAngle: Double) -> UIImage? {
         let radian = CGFloat(Double.pi*rotateAngle/180)
         let transform = CGAffineTransform(rotationAngle: radian)
         let rotateRect = CGRect.init(x: 0, y: 0, width: self.size.width, height: self.size.height).applying(transform)
@@ -444,13 +398,10 @@ public extension UIImage {
         return rotateImage
     }
     
-    /**
-    翻转图
-    @param isVertical true: 垂直翻转 false: 水平翻转
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_mirrorImage(isVertical: Bool) -> UIImage? {
+    /// 翻转图
+    /// - Parameter isVertical: true: 垂直翻转 false: 水平翻转
+    /// - Returns: 图片对象
+    @objc func azl_mirrorImage(isVertical: Bool) -> UIImage? {
         let rect = CGRect.init(x: 0, y: 0, width: self.size.width, height: self.size.height)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, self.scale)
         let context = UIGraphicsGetCurrentContext()
@@ -474,13 +425,10 @@ public extension UIImage {
         return mirrorImage
     }
     
-    /**
-    获取某点的颜色
-    @param point 图片坐标点(从左上到右下计)
-    @return UIColor 颜色
-    */
-    @objc
-    func azl_color(point: CGPoint) -> UIColor? {
+    /// 获取某点的颜色
+    /// - Parameter point: 图片坐标点(从左上到右下计)
+    /// - Returns: 颜色
+    @objc func azl_color(point: CGPoint) -> UIColor? {
         
         let image = self
         let rect = CGRect.init(x: 0, y: 0, width: image.size.width, height: image.size.height)
@@ -510,14 +458,12 @@ public extension UIImage {
         return nil
     }
     
-    /**
-    变色图片
-    @param color 变化的颜色
-    @param blendMode 颜色混合的方式
-    @return UIImage 图片对象
-    */ 
-    @objc
-    func azl_tintImage(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage? {
+    /// 变色图片
+    /// - Parameters:
+    ///   - color: 变化的颜色
+    ///   - blendMode: 颜色混合的方式
+    /// - Returns: 图片对象
+    @objc func azl_tintImage(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         color.setFill()
         let rect = CGRect.init(x: 0, y: 0, width: self.size.width, height: self.size.height)
@@ -525,7 +471,7 @@ public extension UIImage {
         
         self.draw(in: rect, blendMode: blendMode, alpha: 1.0)
         if blendMode != .destinationIn {
-            self.draw(in: rect, blendMode: blendMode, alpha: 1.0)
+            self.draw(in: rect, blendMode: .destinationIn, alpha: 1.0)
         }
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -533,12 +479,9 @@ public extension UIImage {
         return image
     }
     
-    /**
-    不透明完全透明像素占比
-    @return Double 不透明像素的占所有像素的百分比 取值[0, 1]
-    */
-    @objc
-    func azl_alphaPixelRate() -> Double {
+    /// 不透明像素的占所有像素的百分比
+    /// - Returns: 不透明像素的占所有像素的百分比 取值[0, 1]
+    @objc func azl_alphaPixelRate() -> Double {
         if let imageRef = self.cgImage {
             let width = imageRef.width
             let height = imageRef.height

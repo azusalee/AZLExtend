@@ -32,6 +32,7 @@
 		8C0F584A2852E065002D23AE /* AZLRawPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */; };
 		8C0F584C2852E992002D23AE /* AZLNSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */; };
 		8C0F58512852F89A002D23AE /* MyTestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F584D2852F4C7002D23AE /* MyTestObject.swift */; };
+		8C0F585328531B5A002D23AE /* AZLUIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0F585228531B5A002D23AE /* AZLUIColorTests.swift */; };
 		8C10AA8F26DF29E800B78443 /* TestResponderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */; };
 		8C2F3C8326A5629600612B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8226A5629600612B29 /* AppDelegate.swift */; };
 		8C2F3C8526A5629600612B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8426A5629600612B29 /* SceneDelegate.swift */; };
@@ -98,6 +99,7 @@
 		8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLRawPointerTests.swift; sourceTree = "<group>"; };
 		8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLNSObjectTests.swift; sourceTree = "<group>"; };
 		8C0F584D2852F4C7002D23AE /* MyTestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestObject.swift; sourceTree = "<group>"; };
+		8C0F585228531B5A002D23AE /* AZLUIColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLUIColorTests.swift; sourceTree = "<group>"; };
 		8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponderViewController.swift; sourceTree = "<group>"; };
 		8C2F3C8026A5629600612B29 /* AZLExtendExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZLExtendExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2F3C8226A5629600612B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				8C0F58472852DF41002D23AE /* AZLIntTests.swift */,
 				8C0F58492852E065002D23AE /* AZLRawPointerTests.swift */,
 				8C0F584B2852E992002D23AE /* AZLNSObjectTests.swift */,
+				8C0F585228531B5A002D23AE /* AZLUIColorTests.swift */,
 			);
 			path = AZLExtendExampleSwiftTests;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				8C0F584A2852E065002D23AE /* AZLRawPointerTests.swift in Sources */,
 				8C0F584C2852E992002D23AE /* AZLNSObjectTests.swift in Sources */,
 				8C0F58512852F89A002D23AE /* MyTestObject.swift in Sources */,
+				8C0F585328531B5A002D23AE /* AZLUIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

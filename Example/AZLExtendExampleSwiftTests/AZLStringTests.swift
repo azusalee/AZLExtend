@@ -59,6 +59,8 @@ class AZLStringTests: XCTestCase {
     
     func test_base64ToUtf8() {
         XCTAssertEqual("YWJj".azl_base64ToUtf8(), "abc")
+        // 非base64
+        XCTAssertEqual("哈哈".azl_base64ToUtf8(), nil)
     }
     
     func test_forceDecodeUtf8() throws {

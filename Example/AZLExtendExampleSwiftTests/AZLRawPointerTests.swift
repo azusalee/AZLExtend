@@ -33,16 +33,30 @@ class AZLRawPointerTests: XCTestCase {
     
     func test_loadAsRGBA8888() throws {
         let p = UnsafeMutableRawPointer.allocate(byteCount: 32, alignment: 8)
-        p.storeBytes(of: 255, toByteOffset: 0, as: UInt8.self)
-        p.storeBytes(of: 255, toByteOffset: 1, as: UInt8.self)
-        p.storeBytes(of: 255, toByteOffset: 2, as: UInt8.self)
-        p.storeBytes(of: 255, toByteOffset: 3, as: UInt8.self)
+        p.storeBytes(of: 50, toByteOffset: 0, as: UInt8.self)
+        p.storeBytes(of: 100, toByteOffset: 1, as: UInt8.self)
+        p.storeBytes(of: 150, toByteOffset: 2, as: UInt8.self)
+        p.storeBytes(of: 200, toByteOffset: 3, as: UInt8.self)
         let colorData = p.azl_loadAsRGBA8888(offset: 0)
         
-        XCTAssertEqual(colorData.r, 255)
-        XCTAssertEqual(colorData.g, 255)
-        XCTAssertEqual(colorData.b, 255)
-        XCTAssertEqual(colorData.a, 255)
+        XCTAssertEqual(colorData.r, 50)
+        XCTAssertEqual(colorData.g, 100)
+        XCTAssertEqual(colorData.b, 150)
+        XCTAssertEqual(colorData.a, 200)
+    }
+    
+    func test_loadAsARGB8888() throws {
+        let p = UnsafeMutableRawPointer.allocate(byteCount: 32, alignment: 8)
+        p.storeBytes(of: 50, toByteOffset: 0, as: UInt8.self)
+        p.storeBytes(of: 100, toByteOffset: 1, as: UInt8.self)
+        p.storeBytes(of: 150, toByteOffset: 2, as: UInt8.self)
+        p.storeBytes(of: 200, toByteOffset: 3, as: UInt8.self)
+        let colorData = p.azl_loadAsARGB8888(offset: 0)
+        
+        XCTAssertEqual(colorData.r, 100)
+        XCTAssertEqual(colorData.g, 150)
+        XCTAssertEqual(colorData.b, 200)
+        XCTAssertEqual(colorData.a, 50)
     }
 
 }
