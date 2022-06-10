@@ -14,4 +14,10 @@ end
 
 target 'AZLExtendExampleSwift' do
   pod 'AZLExtendSwift', :path => '../'
+  
+  target 'AZLExtendExampleSwiftTests' do
+    inherit! :search_paths
+
+    
+  end
 end

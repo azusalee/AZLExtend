@@ -25,6 +25,8 @@
 		74D133223A9743605ECE6226 /* Pods_AZLExtendExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */; };
 		7ED5FD9B7B3168D6B5CA9E69 /* Pods_AZLExtend_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6454387CC0FBCCD804FED143 /* Pods_AZLExtend_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8C0953BB2851F69300022E5E /* AZLExtendExampleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */; };
+		8C0953C22851F6BE00022E5E /* AZLStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0953C12851F6BE00022E5E /* AZLStringTests.swift */; };
 		8C10AA8F26DF29E800B78443 /* TestResponderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */; };
 		8C2F3C8326A5629600612B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8226A5629600612B29 /* AppDelegate.swift */; };
 		8C2F3C8526A5629600612B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F3C8426A5629600612B29 /* SceneDelegate.swift */; };
@@ -34,6 +36,7 @@
 		8C9219DC26DDE01900D50EB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		8CF10D5B26DE122100154C76 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF10D5A26DE122000154C76 /* Accelerate.framework */; };
 		8CF10D5C26DE122A00154C76 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF10D5A26DE122000154C76 /* Accelerate.framework */; };
+		E72496E43A0C24620807F7D1 /* Pods_AZLExtendExampleSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18B747D3EBBB695887F9B3C /* Pods_AZLExtendExampleSwiftTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6003F589195388D20070C39A;
 			remoteInfo = AZLExtend;
+		};
+		8C0953BC2851F69300022E5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C2F3C7F26A5629600612B29;
+			remoteInfo = AZLExtendExampleSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,8 +82,12 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6454387CC0FBCCD804FED143 /* Pods_AZLExtend_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtend_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		725016BC731A33C202E910FE /* Pods-AZLExtendExampleSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtendExampleSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-AZLExtendExampleSwiftTests/Pods-AZLExtendExampleSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B0567C7A9BC2BC14C2E1DF8 /* Pods-AZLExtend_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Example.release.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Example/Pods-AZLExtend_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8C0953B82851F69200022E5E /* AZLExtendExampleSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AZLExtendExampleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLExtendExampleSwiftTests.swift; sourceTree = "<group>"; };
+		8C0953C12851F6BE00022E5E /* AZLStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AZLStringTests.swift; sourceTree = "<group>"; };
 		8C10AA8E26DF29E800B78443 /* TestResponderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponderViewController.swift; sourceTree = "<group>"; };
 		8C2F3C8026A5629600612B29 /* AZLExtendExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZLExtendExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2F3C8226A5629600612B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,9 +101,11 @@
 		8CF10D5A26DE122000154C76 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8DD66B5A4D6E125E860EC9A6 /* Pods-AZLExtend_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Tests.release.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Tests/Pods-AZLExtend_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8FAB976A70498DCEF1EF2007 /* Pods_AZLExtend_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtend_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18B747D3EBBB695887F9B3C /* Pods_AZLExtendExampleSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtendExampleSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZLExtendExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0794C71EBC072C4E00E7E3 /* Pods-AZLExtend_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Example.debug.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Example/Pods-AZLExtend_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E6ED2FE8FDF92360797331D3 /* Pods-AZLExtend_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtend_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AZLExtend_Tests/Pods-AZLExtend_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1E67308B2989E4E5A66E98C /* Pods-AZLExtendExampleSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZLExtendExampleSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-AZLExtendExampleSwiftTests/Pods-AZLExtendExampleSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA3DF662B6B10979458A37D6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +133,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8C0953B52851F69200022E5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E72496E43A0C24620807F7D1 /* Pods_AZLExtendExampleSwiftTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8C2F3C7D26A5629600612B29 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +162,8 @@
 				8DD66B5A4D6E125E860EC9A6 /* Pods-AZLExtend_Tests.release.xcconfig */,
 				03C6FB3D0C44335932594F43 /* Pods-AZLExtendExampleSwift.debug.xcconfig */,
 				1EB8AF63216FE015926F591B /* Pods-AZLExtendExampleSwift.release.xcconfig */,
+				725016BC731A33C202E910FE /* Pods-AZLExtendExampleSwiftTests.debug.xcconfig */,
+				F1E67308B2989E4E5A66E98C /* Pods-AZLExtendExampleSwiftTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -149,6 +175,7 @@
 				6003F593195388D20070C39A /* Example for AZLExtend */,
 				6003F5B5195388D20070C39A /* Tests */,
 				8C2F3C8126A5629600612B29 /* AZLExtendExampleSwift */,
+				8C0953B92851F69300022E5E /* AZLExtendExampleSwiftTests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				37EA33ACE38738CAC7974CFE /* Pods */,
@@ -161,6 +188,7 @@
 				6003F58A195388D20070C39A /* AZLExtend_Example.app */,
 				6003F5AE195388D20070C39A /* AZLExtend_Tests.xctest */,
 				8C2F3C8026A5629600612B29 /* AZLExtendExampleSwift.app */,
+				8C0953B82851F69200022E5E /* AZLExtendExampleSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +204,7 @@
 				6454387CC0FBCCD804FED143 /* Pods_AZLExtend_Example.framework */,
 				8FAB976A70498DCEF1EF2007 /* Pods_AZLExtend_Tests.framework */,
 				B8A3120B015AF27A8C413E9A /* Pods_AZLExtendExampleSwift.framework */,
+				B18B747D3EBBB695887F9B3C /* Pods_AZLExtendExampleSwiftTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,6 +266,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8C0953B92851F69300022E5E /* AZLExtendExampleSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C0953BA2851F69300022E5E /* AZLExtendExampleSwiftTests.swift */,
+				8C0953C12851F6BE00022E5E /* AZLStringTests.swift */,
+			);
+			path = AZLExtendExampleSwiftTests;
+			sourceTree = "<group>";
+		};
 		8C2F3C8126A5629600612B29 /* AZLExtendExampleSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +331,25 @@
 			productReference = 6003F5AE195388D20070C39A /* AZLExtend_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8C0953B72851F69200022E5E /* AZLExtendExampleSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C0953C02851F69300022E5E /* Build configuration list for PBXNativeTarget "AZLExtendExampleSwiftTests" */;
+			buildPhases = (
+				7E6956E1380F72C7F38C4FB5 /* [CP] Check Pods Manifest.lock */,
+				8C0953B42851F69200022E5E /* Sources */,
+				8C0953B52851F69200022E5E /* Frameworks */,
+				8C0953B62851F69200022E5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C0953BD2851F69300022E5E /* PBXTargetDependency */,
+			);
+			name = AZLExtendExampleSwiftTests;
+			productName = AZLExtendExampleSwiftTests;
+			productReference = 8C0953B82851F69200022E5E /* AZLExtendExampleSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8C2F3C7F26A5629600612B29 /* AZLExtendExampleSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C2F3C9326A5629900612B29 /* Build configuration list for PBXNativeTarget "AZLExtendExampleSwift" */;
@@ -319,12 +376,18 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AZL;
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = azusalee;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
+					};
+					8C0953B72851F69200022E5E = {
+						CreatedOnToolsVersion = 13.2.1;
+						DevelopmentTeam = 9N64Q9SP7U;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8C2F3C7F26A5629600612B29;
 					};
 					8C2F3C7F26A5629600612B29 = {
 						CreatedOnToolsVersion = 12.0;
@@ -350,6 +413,7 @@
 				6003F589195388D20070C39A /* AZLExtend_Example */,
 				6003F5AD195388D20070C39A /* AZLExtend_Tests */,
 				8C2F3C7F26A5629600612B29 /* AZLExtendExampleSwift */,
+				8C0953B72851F69200022E5E /* AZLExtendExampleSwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -371,6 +435,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0953B62851F69200022E5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +520,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AZLExtendExampleSwift/Pods-AZLExtendExampleSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7E6956E1380F72C7F38C4FB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AZLExtendExampleSwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CED0DF008199F3028B740B5D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,6 +603,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8C0953B42851F69200022E5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C0953C22851F6BE00022E5E /* AZLStringTests.swift in Sources */,
+				8C0953BB2851F69300022E5E /* AZLExtendExampleSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8C2F3C7C26A5629600612B29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +630,11 @@
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* AZLExtend_Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
+		};
+		8C0953BD2851F69300022E5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C2F3C7F26A5629600612B29 /* AZLExtendExampleSwift */;
+			targetProxy = 8C0953BC2851F69300022E5E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -726,6 +833,98 @@
 			};
 			name = Release;
 		};
+		8C0953BE2851F69300022E5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 725016BC731A33C202E910FE /* Pods-AZLExtendExampleSwiftTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9N64Q9SP7U;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.bussiness.test.AZLExtendExampleSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZLExtendExampleSwift.app/AZLExtendExampleSwift";
+			};
+			name = Debug;
+		};
+		8C0953BF2851F69300022E5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1E67308B2989E4E5A66E98C /* Pods-AZLExtendExampleSwiftTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9N64Q9SP7U;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.bussiness.test.AZLExtendExampleSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZLExtendExampleSwift.app/AZLExtendExampleSwift";
+			};
+			name = Release;
+		};
 		8C2F3C9126A5629900612B29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03C6FB3D0C44335932594F43 /* Pods-AZLExtendExampleSwift.debug.xcconfig */;
@@ -840,6 +1039,15 @@
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
 				6003F5C4195388D20070C39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C0953C02851F69300022E5E /* Build configuration list for PBXNativeTarget "AZLExtendExampleSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0953BE2851F69300022E5E /* Debug */,
+				8C0953BF2851F69300022E5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
