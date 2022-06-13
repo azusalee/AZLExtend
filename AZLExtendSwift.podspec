@@ -51,6 +51,7 @@ TODO: Add long description of the pod here.
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'AZLExtendSwift/Classes/UI/**/*'
+    ui.dependency "AZLExtendSwift/Core"
   end
   
 end
