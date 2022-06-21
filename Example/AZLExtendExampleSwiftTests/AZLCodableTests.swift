@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AZLExtendSwift
+import AZLExtendSwift
 
 class MyCodableObject: Codable {
     @Default<Bool.False> var flag: Bool

@@ -20,13 +20,17 @@ public protocol DefaultValue {
 }
 
 @propertyWrapper
-struct Default<T: DefaultValue> {
+public struct Default<T: DefaultValue> {
     public var wrappedValue: T.Value
+    
+    public init(wrappedValue: T.Value) {
+        self.wrappedValue = wrappedValue
+    }
 }
 
 // 给缺失的key值也添加默认值
 extension KeyedDecodingContainer {
-    func decode<T>(
+    public func decode<T>(
         _ type: Default<T>.Type,
         forKey key: Key
     ) throws -> Default<T> where T: DefaultValue {
@@ -35,7 +39,7 @@ extension KeyedDecodingContainer {
 }
 
 extension Default: Decodable {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         
         // 使用默认值
@@ -71,7 +75,7 @@ extension Default: Decodable {
 }
 
 extension Default: Encodable {
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(wrappedValue)
     }
