@@ -10,7 +10,6 @@ import Accelerate
 
 public extension UIImage {
     
-    
     /// 从url生成缩略图(指定大小)
     /// - Parameters:
     ///   - url: 本地的路径url

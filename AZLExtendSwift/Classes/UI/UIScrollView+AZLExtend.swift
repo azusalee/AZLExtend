@@ -27,7 +27,7 @@ extension UIScrollView {
     
     /// 键盘出现事件 回调
     @objc
-    func azl_keyboardWillAppear(notification:Notification) {
+    func azl_keyboardWillAppear(notification: Notification) {
         if let responseView = self.azl_getResponseView() {
             // 找出正在响应的子View
             let user_info = notification.userInfo
@@ -49,10 +49,14 @@ extension UIScrollView {
     
     /// 键盘消失事件 回调
     @objc 
-    func azl_keyboardWillDisappear(notification:Notification) {
+    func azl_keyboardWillDisappear(notification: Notification) {
         // 收起键盘后，如果偏移超出内容，偏移移到最下(滚动到最低部)
         if self.contentOffset.y+self.bounds.size.height > self.contentSize.height {
-            self.setContentOffset(CGPoint.init(x: self.contentOffset.x, y: self.contentSize.height-self.bounds.size.height), animated: true)
+            var targetY = self.contentSize.height-self.bounds.size.height
+            if targetY < 0 {
+                targetY = 0
+            }
+            self.setContentOffset(CGPoint.init(x: self.contentOffset.x, y: targetY), animated: true)
         }
     }
 }

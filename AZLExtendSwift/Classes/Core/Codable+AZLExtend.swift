@@ -5,7 +5,6 @@
 //  Created by lizihong on 2022/6/15.
 //
 
-
 import Foundation
 
 /*
@@ -106,5 +105,23 @@ public extension Double {
 public extension String {
     enum Empty: DefaultValue {
         public static let defaultValue = ""
+    }
+}
+
+public extension Array where Element == String {
+    enum EmptyString: DefaultValue {
+        public static let defaultValue = Array<Element>()
+    }
+}
+
+public extension Array where Element == Int {
+    enum EmptyInt: DefaultValue {
+        public static let defaultValue = Array<Element>()
+    }
+}
+
+public extension Array where Element == Double {
+    enum EmptyDouble: DefaultValue {
+        public static let defaultValue = Array<Element>()
     }
 }

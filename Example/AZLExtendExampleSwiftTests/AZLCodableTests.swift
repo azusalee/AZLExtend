@@ -15,6 +15,27 @@ class MyCodableObject: Codable {
     @Default<Int.Zero> var num_i: Int
     @Default<String.Empty> var name: String
     
+    var subObject: MyCodableSubObject?
+    @Default<Array<String>.EmptyString> var names: [String]
+    @Default<Array<Double>.EmptyDouble> var nums_d: [Double]
+    @Default<Array<Int>.EmptyInt> var nums_i: [Int]
+    
+    // Codable 这个只要重写了，就必须把所有属性的的枚举都写下，不然不会解析
+    enum CodingKeys: String, CodingKey {
+        case flag
+        case num_d
+        case num_i
+        case name
+        // 不能单独对一个属性的key进行修改
+        case subObject = "sub_object"
+        case names
+        case nums_d
+        case nums_i
+    }
+}
+
+class MyCodableSubObject: Codable {
+    @Default<String.Empty> var name: String
 }
 
 class AZLCodableTests: XCTestCase {
@@ -28,12 +49,15 @@ class AZLCodableTests: XCTestCase {
     }
 
     func test_decode1() throws {
-        
         let dict: [String: Any] = [
             "flag": true,
             "num_d": 1.2,
             "num_i": 1,
-            "name": "tom"
+            "name": "tom",
+            "sub_object": [:],
+            "names": ["haha"],
+            "nums_d": [1.2],
+            "nums_i": [1]
         ]
         let data = try! JSONSerialization.data(withJSONObject: dict, options: [])
         
@@ -43,7 +67,10 @@ class AZLCodableTests: XCTestCase {
         XCTAssertEqual(obj?.num_d, 1.2)
         XCTAssertEqual(obj?.num_i, 1)
         XCTAssertEqual(obj?.name, "tom")
-        
+        XCTAssert(obj?.subObject?.name == "")
+        XCTAssertEqual(obj?.names.first, "haha")
+        XCTAssertEqual(obj?.nums_d.first, 1.2)
+        XCTAssertEqual(obj?.nums_i.first, 1)
     }
     
     func test_decode2() throws {
@@ -61,6 +88,10 @@ class AZLCodableTests: XCTestCase {
         XCTAssertEqual(obj2?.num_d, 1.2)
         XCTAssertEqual(obj2?.num_i, 1)
         XCTAssertEqual(obj2?.name, "123")
+        
+        XCTAssertEqual(obj2?.names.count, 0)
+        XCTAssertEqual(obj2?.nums_d.count, 0)
+        XCTAssertEqual(obj2?.nums_i.count, 0)
     }
     
     func test_decode3() throws {
