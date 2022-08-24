@@ -49,10 +49,7 @@ extension Default: Decodable {
         } else {
             // 类型不对，尝试兼容类型
             let valueType = T.Value.self
-            if valueType == String.self, let doubleValue = try? container.decode(Double.self) {
-                let number = NSNumber.init(value: doubleValue)
-                wrappedValue = number.stringValue as! T.Value
-            } else if let stringValue = try? container.decode(String.self) {
+            if let stringValue = try? container.decode(String.self) {
                 if valueType == Double.self, let value = Double(stringValue) as? T.Value {
                     wrappedValue = value
                 } else if valueType == Int.self, let value = Int(stringValue) as? T.Value {
@@ -68,6 +65,19 @@ extension Default: Decodable {
                         }
                     }
                 } 
+            } else if let doubleValue = try? container.decode(Double.self) {
+                if valueType == Bool.self {
+                    if doubleValue > 0 {
+                        wrappedValue = true as! T.Value
+                    } else {
+                        wrappedValue = false as! T.Value
+                    }
+                } else if valueType == Int.self {
+                    wrappedValue = Int(doubleValue) as! T.Value
+                } else if valueType == String.self {
+                    let number = NSNumber.init(value: doubleValue)
+                    wrappedValue = number.stringValue as! T.Value
+                }
             }
         }
     }
