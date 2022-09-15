@@ -788,6 +788,7 @@
 			baseConfigurationReference = BF0794C71EBC072C4E00E7E3 /* Pods-AZLExtend_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AZLExtend/AZLExtend-Prefix.pch";
 				INFOPLIST_FILE = "AZLExtend/AZLExtend-Info.plist";
@@ -804,6 +805,7 @@
 			baseConfigurationReference = 8B0567C7A9BC2BC14C2E1DF8 /* Pods-AZLExtend_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AZLExtend/AZLExtend-Prefix.pch";
 				INFOPLIST_FILE = "AZLExtend/AZLExtend-Info.plist";
