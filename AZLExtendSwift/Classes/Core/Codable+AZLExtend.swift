@@ -14,7 +14,7 @@ import Foundation
 参考 https://onevcat.com/2020/11/codable-default/
  */
 public protocol DefaultValue {
-    associatedtype Value: Codable
+    associatedtype Value: Codable&StringTransform&DoubleTransform
     static var defaultValue: Value { get }
 }
 
@@ -25,6 +25,18 @@ public struct Default<T: DefaultValue> {
     public init(wrappedValue: T.Value) {
         self.wrappedValue = wrappedValue
     }
+}
+
+
+// 能通过string转换
+public protocol StringTransform {
+    static func convertFrom(string: String) -> Self?
+}
+
+
+// 能通过Double转换
+public protocol DoubleTransform {
+    static func convertFrom(doubleValue: Double) -> Self?
 }
 
 // 给缺失的key值也添加默认值
@@ -43,40 +55,18 @@ extension Default: Decodable {
         
         // 使用默认值
         wrappedValue = T.defaultValue
-        
         if let value = (try? container.decode(T.Value.self)) {
             wrappedValue = value
         } else {
             // 类型不对，尝试兼容类型
-            let valueType = T.Value.self
+            //let valueType = T.Value.self
             if let stringValue = try? container.decode(String.self) {
-                if valueType == Double.self, let value = Double(stringValue) as? T.Value {
+                if let value = T.Value.convertFrom(string: stringValue) {
                     wrappedValue = value
-                } else if valueType == Int.self, let value = Int(stringValue) as? T.Value {
-                    wrappedValue = value
-                } else if valueType == Bool.self {
-                    if let value = Bool(stringValue) as? T.Value {
-                        wrappedValue = value
-                    } else if let intValue = Int(stringValue) {
-                        if intValue > 0 {
-                            wrappedValue = true as! T.Value
-                        } else {
-                            wrappedValue = false as! T.Value
-                        }
-                    }
-                } 
+                }
             } else if let doubleValue = try? container.decode(Double.self) {
-                if valueType == Bool.self {
-                    if doubleValue > 0 {
-                        wrappedValue = true as! T.Value
-                    } else {
-                        wrappedValue = false as! T.Value
-                    }
-                } else if valueType == Int.self {
-                    wrappedValue = Int(doubleValue) as! T.Value
-                } else if valueType == String.self {
-                    let number = NSNumber.init(value: doubleValue)
-                    wrappedValue = number.stringValue as! T.Value
+                if let value = T.Value.convertFrom(doubleValue: doubleValue) {
+                    wrappedValue = value
                 }
             }
         }
@@ -91,30 +81,94 @@ extension Default: Encodable {
 }
 
 // 基础类型decode默认值添加
-public extension Bool {
-    enum False: DefaultValue {
+extension Bool: StringTransform, DoubleTransform {
+    public enum False: DefaultValue {
         public static let defaultValue = false
     }
-    enum True: DefaultValue {
+    public enum True: DefaultValue {
         public static let defaultValue = true
     }
+    
+    public static func convertFrom(string: String) -> Bool? {
+        if let value = Bool(string) {
+            return value
+        } else if let intValue = Int(string) {
+            return intValue > 0
+        }
+        return nil
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> Bool? {
+        return doubleValue > 0
+    }
 }
 
-public extension Int {
-    enum Zero: DefaultValue {
+extension Int: StringTransform, DoubleTransform {
+    
+    public enum Zero: DefaultValue {
         public static let defaultValue = 0
     }
-}
-
-public extension Double {
-    enum Zero: DefaultValue {
-        public static let defaultValue = 0.0
+    
+    public static func convertFrom(string: String) -> Int? {
+        return Int(string)
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> Int? {
+        return Int(doubleValue)
     }
 }
 
-public extension String {
-    enum Empty: DefaultValue {
+extension Int64: StringTransform, DoubleTransform {
+    public enum Zero: DefaultValue {
+        public static let defaultValue: Int64 = 0
+    }
+    
+    public static func convertFrom(string: String) -> Int64? {
+        return Int64(string)
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> Int64? {
+        return Int64(doubleValue)
+    }
+}
+
+extension Double: StringTransform, DoubleTransform {
+    public enum Zero: DefaultValue {
+        public static let defaultValue = 0.0
+    }
+
+    public static func convertFrom(string: String) -> Double? {
+        return Double(string)
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> Double? {
+        return doubleValue
+    }
+}
+
+extension String: StringTransform, DoubleTransform {
+    public enum Empty: DefaultValue {
         public static let defaultValue = ""
+    }
+    
+    public static func convertFrom(string: String) -> String? {
+        return string
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> String? {
+        let number = NSNumber.init(value: doubleValue)
+        return number.stringValue
+    }
+}
+
+extension Array: StringTransform, DoubleTransform {
+    
+    public static func convertFrom(string: String) -> Array? {
+        return nil
+    }
+    
+    public static func convertFrom(doubleValue: Double) -> Array? {
+        return nil
     }
 }
 

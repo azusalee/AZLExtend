@@ -8,6 +8,7 @@
 import UIKit
 import Accelerate
 
+/// 常用图片处理的扩展方法
 public extension UIImage {
     
     /// 从url生成缩略图(指定大小)

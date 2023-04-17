@@ -32,7 +32,7 @@ extension UIScrollView {
             // 找出正在响应的子View
             let user_info = notification.userInfo
             let keyboardRect = (user_info?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            if let responseRect = responseView.superview?.convert(responseView.frame, to: UIApplication.shared.keyWindow) {
+            if let responseRect = responseView.superview?.convert(responseView.frame, to: self.window) {
                 // 计算响应的view为了不让键盘遮挡需要偏移的距离
                 let responseBottomInScrollView = responseRect.origin.y+responseRect.size.height+10
                 let moveOffset = responseBottomInScrollView-keyboardRect.origin.y;

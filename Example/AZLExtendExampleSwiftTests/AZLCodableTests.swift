@@ -14,6 +14,7 @@ class MyCodableObject: Codable {
     @Default<Double.Zero> var num_d: Double
     @Default<Int.Zero> var num_i: Int
     @Default<String.Empty> var name: String
+    @Default<Int64.Zero> var num_i64: Int64
     
     // 嵌套对象时，如果对应字段为空，这里会赋值空，如果有值，但不能正确解析时，会报错
     var subObject: MyCodableSubObject?
@@ -32,6 +33,7 @@ class MyCodableObject: Codable {
         case names
         case nums_d
         case nums_i
+        case num_i64
     }
 }
 
@@ -58,7 +60,8 @@ class AZLCodableTests: XCTestCase {
             "sub_object": [:],
             "names": ["haha"],
             "nums_d": [1.2],
-            "nums_i": [1]
+            "nums_i": [1],
+            "num_i64": 1
         ]
         let data = try! JSONSerialization.data(withJSONObject: dict, options: [])
         
@@ -72,6 +75,7 @@ class AZLCodableTests: XCTestCase {
         XCTAssertEqual(obj?.names.first, "haha")
         XCTAssertEqual(obj?.nums_d.first, 1.2)
         XCTAssertEqual(obj?.nums_i.first, 1)
+        XCTAssertEqual(obj?.num_i64, 1)
     }
     
     func test_decode2() throws {
@@ -79,7 +83,8 @@ class AZLCodableTests: XCTestCase {
             "flag": "1",
             "num_d": "1.2",
             "num_i": "1",
-            "name": 123
+            "name": 123,
+            "num_i64": 1.2
         ]
         let data2 = try! JSONSerialization.data(withJSONObject: dict2, options: [])
         
@@ -93,6 +98,7 @@ class AZLCodableTests: XCTestCase {
         XCTAssertEqual(obj2?.names.count, 0)
         XCTAssertEqual(obj2?.nums_d.count, 0)
         XCTAssertEqual(obj2?.nums_i.count, 0)
+        XCTAssertEqual(obj2?.num_i64, 1)
     }
     
     func test_decode3() throws {
@@ -235,5 +241,40 @@ class AZLCodableTests: XCTestCase {
         XCTAssertEqual(jsonDict?["num_i"] as? Int, 1)
         XCTAssertEqual(jsonDict?["name"] as? String, "tom")
         
+    }
+    
+    func test_decode10() throws {
+        let dict: [String: Any] = [
+            "flag": "哈哈",
+            "num_d": 1.2,
+            "num_i": 1,
+            "name": "tom",
+            "sub_object": [:],
+            "names": 123,
+            "nums_d": "123",
+            "nums_i": [1],
+            "num_i64": "1"
+        ]
+        let data = try! JSONSerialization.data(withJSONObject: dict, options: [])
+        
+        let obj = try? JSONDecoder().decode(MyCodableObject.self, from: data)
+        
+        XCTAssertEqual(obj?.flag, false)
+        XCTAssertEqual(obj?.num_d, 1.2)
+        XCTAssertEqual(obj?.num_i, 1)
+        XCTAssertEqual(obj?.name, "tom")
+        XCTAssert(obj?.subObject?.name == "")
+        XCTAssertEqual(obj?.names.count, 0)
+        XCTAssertEqual(obj?.nums_d.count, 0)
+        XCTAssertEqual(obj?.nums_i.first, 1)
+        XCTAssertEqual(obj?.num_i64, 1)
+    }
+    
+    func test_other() throws {
+        let doubleValue: Double = 1.1
+        let stringValue: String = "haha"
+        
+        XCTAssertEqual(Double.convertFrom(doubleValue: doubleValue), doubleValue)
+        XCTAssertEqual(String.convertFrom(string: stringValue), stringValue)
     }
 }
