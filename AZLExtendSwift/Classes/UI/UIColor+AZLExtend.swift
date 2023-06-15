@@ -86,6 +86,11 @@ extension UIColor {
         var a = CGFloat(myFloatForA)
         
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        // 有可能，不在0~1的范围
+        a = min(max(0, a), 1)
+        r = min(max(0, r), 1)
+        g = min(max(0, g), 1)
+        b = min(max(0, b), 1)
         let colorValue: Int64 = (Int64)((Int64)(a*255)*256*256*256+(Int64)(r*255)*256*256+(Int64)(g*255)*256+(Int64)(b*255))
         return colorValue
     }
