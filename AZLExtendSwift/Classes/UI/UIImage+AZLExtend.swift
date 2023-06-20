@@ -114,7 +114,14 @@ public extension UIImage {
     /// - Parameter size: 图片大小
     /// - Returns: 图片对象
     @objc func azl_scaleImage(size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
+        return azl_scaleImage(size: size, scale: self.scale)
+    }
+    
+    /// 把图片缩放到指定size
+    /// - Parameter size: 图片大小
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(size: CGSize, scale: CGFloat) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
         self.draw(in: CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size))
         let scaleImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -132,6 +139,8 @@ public extension UIImage {
         let height = width*(self.size.height/self.size.width)
         return self.azl_scaleImage(size: CGSize.init(width: width, height: height))
     }
+    
+    
     
     /// 根据高等比缩放
     /// - Parameter height: 缩放后的高度
@@ -256,6 +265,55 @@ public extension UIImage {
                         bitmapData?.storeBytes(of: grayInt, toByteOffset: index*4+1, as: UInt8.self)
                         bitmapData?.storeBytes(of: grayInt, toByteOffset: index*4+2, as: UInt8.self)
                         bitmapData?.storeBytes(of: grayInt, toByteOffset: index*4+3, as: UInt8.self)
+                        
+                        j += 1
+                    }
+                    i += 1
+                }
+                
+                if let cgImage = context.makeImage() {
+                    return UIImage.init(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
+                }
+            }
+        }
+        return nil
+    }
+    
+    /// 透明翻转图
+    /// - Returns: 图片对象
+    @objc func azl_reverseAlphaImage() -> UIImage? {
+        if let imageRef = self.cgImage {
+            let width = imageRef.width
+            let height = imageRef.height
+            let bitmapData = malloc(width*height*1*4)
+            defer {
+                free(bitmapData)
+            }
+            
+            if let context = CGContext.init(data: bitmapData, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width*4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) {
+                let rect = CGRect.init(x: 0, y: 0, width: width, height: height)
+                context.clear(rect)
+                context.draw(imageRef, in: rect)
+                
+                var i = 0
+                var j = 0
+                while i < width {
+                    j = 0
+                    while j < height {
+                        let index = j*width+i
+                        // 获取每一点的rgba
+                        let r = bitmapData?.load(fromByteOffset: index*4, as: UInt8.self) ?? 0
+                        let g = bitmapData?.load(fromByteOffset: index*4+1, as: UInt8.self) ?? 0
+                        let b = bitmapData?.load(fromByteOffset: index*4+2, as: UInt8.self) ?? 0
+                        let a = bitmapData?.load(fromByteOffset: index*4+3, as: UInt8.self) ?? 0
+                        
+                        let newa = 255-a
+                        
+                        // 替换每一点的a
+//                        bitmapData?.storeBytes(of: r, toByteOffset: index*4, as: UInt8.self)
+//                        bitmapData?.storeBytes(of: g, toByteOffset: index*4+1, as: UInt8.self)
+//                        bitmapData?.storeBytes(of: b, toByteOffset: index*4+2, as: UInt8.self)
+                        bitmapData?.storeBytes(of: newa, toByteOffset: index*4+3, as: UInt8.self)
                         
                         j += 1
                     }
