@@ -215,14 +215,17 @@ public extension UIImage {
         let height:Int = Int(self.size.height*self.scale)
         
         let colorSpace = CGColorSpaceCreateDeviceGray()
-        if let context = CGContext.init(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue), let oriCGImage = self.cgImage {
-            context.draw(oriCGImage, in: CGRect.init(x: 0, y: 0, width: width, height: height))
-            if let cgImage = context.makeImage() {
-                let grayImage = UIImage.init(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
-                return grayImage
-            }
+        guard let oriCGImage = self.cgImage else {
+            return nil
         }
-        
+        guard let context = CGContext.init(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: oriCGImage.bitmapInfo.rawValue) else {
+            return nil
+        }
+        context.draw(oriCGImage, in: CGRect.init(x: 0, y: 0, width: width, height: height))
+        if let cgImage = context.makeImage() {
+            let grayImage = UIImage.init(cgImage: cgImage, scale: self.scale, orientation: self.imageOrientation)
+            return grayImage
+        }
         return nil
     }
     
