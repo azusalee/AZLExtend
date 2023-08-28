@@ -133,24 +133,36 @@ public extension UIImage {
     /// - Parameter width: 缩放后的宽度
     /// - Returns: 图片对象
     @objc func azl_scaleImage(width: CGFloat) -> UIImage? {
+        return self.azl_scaleImage(width: width, scale: self.scale)
+    }
+    
+    /// 根据宽等比缩放
+    /// - Parameter width: 缩放后的宽度
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(width: CGFloat, scale: CGFloat) -> UIImage? {
         if self.size.width == 0 || self.size.height == 0 {
             return nil
         }
         let height = width*(self.size.height/self.size.width)
-        return self.azl_scaleImage(size: CGSize.init(width: width, height: height))
+        return self.azl_scaleImage(size: CGSize.init(width: width, height: height), scale: scale)
     }
-    
-    
     
     /// 根据高等比缩放
     /// - Parameter height: 缩放后的高度
     /// - Returns: 图片对象
     @objc func azl_scaleImage(height: CGFloat) -> UIImage? {
+        return self.azl_scaleImage(height: height, scale: self.scale)
+    }
+    
+    /// 根据高等比缩放
+    /// - Parameter height: 缩放后的高度
+    /// - Returns: 图片对象
+    @objc func azl_scaleImage(height: CGFloat, scale: CGFloat) -> UIImage? {
         if self.size.width == 0 || self.size.height == 0 {
             return nil
         }
         let width = height*(self.size.width/self.size.height)
-        return self.azl_scaleImage(size: CGSize.init(width: width, height: height))
+        return self.azl_scaleImage(size: CGSize.init(width: width, height: height), scale: scale)
     }
     
     /// 裁剪图片
