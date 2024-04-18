@@ -230,7 +230,7 @@ public extension UIImage {
         guard let oriCGImage = self.cgImage else {
             return nil
         }
-        guard let context = CGContext.init(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: oriCGImage.bitmapInfo.rawValue) else {
+        guard let context = CGContext.init(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue).rawValue) else {
             return nil
         }
         context.draw(oriCGImage, in: CGRect.init(x: 0, y: 0, width: width, height: height))
